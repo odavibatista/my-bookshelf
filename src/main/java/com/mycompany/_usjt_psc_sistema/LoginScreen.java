@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 823212382
@@ -28,8 +30,8 @@ public class LoginScreen extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        loginTextField = new javax.swing.JTextField();
+        passwordTextField = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 255));
@@ -37,6 +39,11 @@ public class LoginScreen extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setText("Login");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField2.setBackground(new java.awt.Color(204, 255, 255));
         jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
@@ -48,9 +55,9 @@ public class LoginScreen extends javax.swing.JPanel {
             }
         });
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite seu login"));
+        loginTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite seu login"));
 
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite sua senha"));
+        passwordTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite sua senha"));
 
         jButton2.setBackground(new java.awt.Color(204, 255, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -72,8 +79,8 @@ public class LoginScreen extends javax.swing.JPanel {
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(loginTextField)
+                            .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,9 +96,9 @@ public class LoginScreen extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -108,12 +115,24 @@ public class LoginScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // I -> Must fetch the user's typed login data
+        String login = loginTextField.getText();
+        // II -> Must fetch the user's typed password data
+        String password = new String(passwordTextField.getPassword());
+        // III -> Must see if both are admin
+        if (login.equals("admin") && password.equals("admin"))    {
+            // IV -> Must greet if succeeded
+            JOptionPane.showMessageDialog(null, "Bem vindo!");
+            // V -> Must inform the incorrect key/value
+        } else JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos!");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField loginTextField;
+    private javax.swing.JPasswordField passwordTextField;
     // End of variables declaration//GEN-END:variables
 }
