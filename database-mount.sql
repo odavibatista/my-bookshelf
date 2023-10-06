@@ -27,8 +27,8 @@ CREATE TABLE users	(
     age INTEGER NOT NULL,
     gender VARCHAR(9) NOT NULL,
     user_password VARCHAR(30) NOT NULL,
-    favorite_gender INTEGER NOT NULL, FOREIGN KEY (id) REFERENCES genres(id),
-    second_favorite_gender INTEGER NOT NULL, FOREIGN KEY (id) REFERENCES genres(id)
+    favorite_gender INTEGER NOT NULL, FOREIGN KEY (favorite_gender) REFERENCES genres(id),
+    second_favorite_gender INTEGER NOT NULL, FOREIGN KEY (second_favorite_gender) REFERENCES genres(id)
 );
 
 -- Admin user register
