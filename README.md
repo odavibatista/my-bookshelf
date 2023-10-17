@@ -6,6 +6,7 @@
     <img width="60px" src="https://davibatista.tech/assets/images/techs/sql.png"/>
     <img width="60px" src="https://user-images.githubusercontent.com/43886029/158700686-2b7f0d3d-2cfa-4ed0-9783-3b4b0d24469e.svg"/>
 </div>
+
 ## 📖 Index
 - [About](#about-it)
 - [Features](#features)
