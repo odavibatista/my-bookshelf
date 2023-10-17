@@ -1,6 +1,11 @@
 # myBookshelf
-![Alt text](./src/assets/duke.png)
-Under severe building!
+<div align="center">
+    <h2>Tech Stacks</h2>
+    <img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"/>
+    <img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"/>
+    <img width="60px" src="https://davibatista.tech/assets/images/techs/sql.png"/>
+    <img width="60px" src="https://user-images.githubusercontent.com/43886029/158700686-2b7f0d3d-2cfa-4ed0-9783-3b4b0d24469e.svg"/>
+</div>
 ## 📖 Index
 - [About](#about-it)
 - [Features](#features)
@@ -8,8 +13,8 @@ Under severe building!
 
 ## About The Project <a name = "about-it"></a>
 
-myBookshelf is a Java desktop app developed as a period project for the second semester of 2023.
-It emulates a digital library review system where users are able 
+myBookshelf is a bookstanning Java desktop app developed as a period project for the second semester of 2023.
+It emulates a digital library review system where users are able to find and add informations about books along with many other people on the system's service. People can find, register, rate and see informations about books.
 
 ## Features <a name = "features"></a>
 
