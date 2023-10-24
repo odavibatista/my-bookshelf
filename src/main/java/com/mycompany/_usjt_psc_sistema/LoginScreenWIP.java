@@ -98,11 +98,19 @@ public class LoginScreenWIP extends javax.swing.JFrame {
         // II -> Must fetch the user's typed password data
         String password = new String(passwordField.getPassword());
         // III -> Must see if both are admin
-        if (login.equals("admin") && password.equals("admin"))    {
-            // IV -> Must greet if succeeded
-            JOptionPane.showMessageDialog(null, "Bem vindo!");
-            // V -> Must inform the incorrect key/value
-        } else JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos!");
+        try {
+            Pessoa pessoa = new Pessoa(login, password);
+            PessoaDAO dao = new PessoaDAO();
+            if(dao.exists(pessoa)){
+                JOptionPane.showMessageDialog(rootPane, "Bem vindo!");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Usuário inválido");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Parece que tivemos um problema. Tente novamente mais tarde.");
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**

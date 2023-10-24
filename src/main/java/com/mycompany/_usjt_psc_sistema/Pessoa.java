@@ -10,43 +10,38 @@ package com.mycompany._usjt_psc_sistema;
  */
 public class Pessoa {
     private int codigo;
-    private String nome, fone, email;
+    private String email, password;
     
-    public Pessoa (String nome, String fone, String email)   {
-        this.nome = nome;
-        this.fone = fone;
+    public Pessoa (String email, String password)   {
         this.email = email;
+        this.password = password;
     }
     
     public int getCodigo()  {
         return codigo;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getFone() {
-        return fone;
-    }
-
     public String getEmail() {
         return email;
+    }
+    
+    public String getPassword() {
+        return password;
     }
     
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
     
-    public void setNome(String nome)    {
-        this.nome = nome;
-    }
-    
-    public void setFone(String fone) {
-        this.fone = fone;
-    }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public void setPassword (String password)   {
+        if (this.password.equals(password)) {
+            System.out.println("Senha idêntica à atual.");
+        }
+        this.password = password;
     }
 }
