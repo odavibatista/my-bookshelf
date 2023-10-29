@@ -103,6 +103,9 @@ public class LoginScreenWIP extends javax.swing.JFrame {
             PessoaDAO dao = new PessoaDAO();
             if(dao.exists(pessoa)){
                 JOptionPane.showMessageDialog(rootPane, "Bem vindo!");
+                Dashboard dt = new Dashboard();
+                dt.setVisible(true);
+                this.dispose();
             }
             else{
                 JOptionPane.showMessageDialog(null, "Usuário inválido");

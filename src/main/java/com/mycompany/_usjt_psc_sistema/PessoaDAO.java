@@ -21,7 +21,7 @@ public class PessoaDAO {
         String password = pessoa.getPassword();
         
         //1 - Especificar o comando SQL
-        String sql = "INSERT INTO tb_pessoa (nome, fone, email) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO tb_pessoa (nome, email) VALUES (?, ?, ?);";
         //2 - Abrir uma conexão com o mySql
         var fabricaDeConexoes = new ConnectionFactory();
         var conexao = fabricaDeConexoes.conectar();
@@ -87,7 +87,7 @@ public class PessoaDAO {
     }
     
     public boolean exists(Pessoa pessoa)    throws Exception {
-        String sql = "SELECT * FROM users WHERE email = ? AND senha = ?";
+        String sql = "SELECT * FROM users WHERE email = ? AND user_password  = ?";
         try (Connection conn = ConnectionFactory.conectar();
             PreparedStatement ps = conn.prepareStatement(sql)){
                 ps.setString(1, pessoa.getEmail());
