@@ -30,15 +30,18 @@ public class LoginScreenWIP extends javax.swing.JFrame {
 
         loginButton = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
-        loginField = new javax.swing.JTextField();
         cancelLoginButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
 
-        loginButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        loginButton.setBackground(new java.awt.Color(0, 102, 255));
+        loginButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("Login");
+        loginButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
@@ -46,8 +49,11 @@ public class LoginScreenWIP extends javax.swing.JFrame {
         });
 
         passwordField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite sua senha"));
-
-        loginField.setBorder(javax.swing.BorderFactory.createTitledBorder("Insira seu email"));
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
 
         cancelLoginButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cancelLoginButton.setText("Cancelar");
@@ -55,54 +61,63 @@ public class LoginScreenWIP extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Faça seu login!");
 
+        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Digite seu e-mail", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cancelLoginButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(passwordField)
-                        .addComponent(loginField, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cancelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                    .addComponent(jTextField1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(76, 76, 76)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(loginField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cancelLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addGap(16, 16, 16))
         );
+
+        jTextField1.getAccessibleContext().setAccessibleName("Informe seu e-mail");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // I -> Must fetch the user's typed login data
-        String login = loginField.getText();
+        String login = jTextField1.getText();
         // II -> Must fetch the user's typed password data
         String password = new String(passwordField.getPassword());
         // III -> Must see if both are admin
         try {
-            Pessoa pessoa = new Pessoa(login, password);
+            Pessoa pessoa = new Pessoa(null, login, password);
             PessoaDAO dao = new PessoaDAO();
             if(dao.exists(pessoa)){
                 JOptionPane.showMessageDialog(rootPane, "Bem vindo!");
+                
+                DashboardScreen dashboardScreen = new DashboardScreen(); // Substitua "NomeDoNovoFrame" pelo nome real do seu novo JFrame
+                dashboardScreen.setVisible(true);
+                this.dispose();
             }
             else{
                 JOptionPane.showMessageDialog(null, "Usuário inválido");
@@ -112,6 +127,10 @@ public class LoginScreenWIP extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,8 +170,8 @@ public class LoginScreenWIP extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelLoginButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton loginButton;
-    private javax.swing.JTextField loginField;
     private javax.swing.JPasswordField passwordField;
     // End of variables declaration//GEN-END:variables
 }
