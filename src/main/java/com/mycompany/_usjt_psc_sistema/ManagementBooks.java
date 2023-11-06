@@ -8,12 +8,12 @@ package com.mycompany._usjt_psc_sistema;
  *
  * @author Samsung
  */
-public class ManagementCourses extends javax.swing.JFrame {
+public class ManagementBooks extends javax.swing.JFrame {
 
     /**
-     * Creates new form ManagementCourses
+     * Creates new form ManagementBooks
      */
-    public ManagementCourses() {
+    public ManagementBooks() {
         super ("Gerenciamento de cursos");
         initComponents();
         setLocationRelativeTo(null);
@@ -128,20 +128,20 @@ public class ManagementCourses extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagementCourses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagementBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagementCourses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagementBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagementCourses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagementBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagementCourses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagementBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagementCourses().setVisible(true);
+                new ManagementBooks().setVisible(true);
             }
         });
     }

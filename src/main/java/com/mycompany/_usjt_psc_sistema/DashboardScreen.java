@@ -92,14 +92,14 @@ public class DashboardScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void managmentLessonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managmentLessonsActionPerformed
-        ManagmentCourses managmentCourses = new ManagmentCourses(); // Substitua "NomeDoNovoFrame" pelo nome real do seu novo JFrame
-        managmentCourses.setVisible(true);
+        ManagementBooks managementBooks = new ManagementBooks(); // Substitua "NomeDoNovoFrame" pelo nome real do seu novo JFrame
+        managementBooks.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_managmentLessonsActionPerformed
 
     private void managmentStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managmentStudentsActionPerformed
-        ManagmentStudents managmentStudent = new ManagmentStudents(); // Substitua "NomeDoNovoFrame" pelo nome real do seu novo JFrame
-        managmentStudent.setVisible(true);
+        ManagementUsers managementUsers = new ManagementUsers(); // Substitua "NomeDoNovoFrame" pelo nome real do seu novo JFrame
+        managementUsers.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_managmentStudentsActionPerformed
 
