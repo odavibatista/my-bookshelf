@@ -17,21 +17,18 @@ public class Main {
         String menu = "1-Cadastrar\n2-Listar\n3-Atualizar\n4-Remover\n0-Sair";
         var pessoaDAO = new PessoaDAO();
         int op;
-        
-        do{
+
+        do {
             op = Integer.parseInt(
-                    JOptionPane.showInputDialog(menu)
-            );
-            
-            switch(op)  {
+                    JOptionPane.showInputDialog(menu));
+
+            switch (op) {
                 case 1:
                     String nome = JOptionPane.showInputDialog("Digite o nome");
                     String email = JOptionPane.showInputDialog("Digite o e-mail:");
-<<<<<<< HEAD
-                    var pessoa = new Pessoa(nome, email);
-=======
+
                     var pessoa = new Pessoa(nome, email, null, "", null);
->>>>>>> a1c6f9484a97d9b262ed968273861347c96299d3
+
                     pessoaDAO.cadastrar(pessoa);
                     JOptionPane.showMessageDialog(null, "Usuário " + nome + " cadastrado com sucesso!");
                     break;
@@ -39,7 +36,9 @@ public class Main {
                     pessoaDAO.listar();
                     break;
                 case 4:
-                    int codigo = Integer.parseInt(JOptionPane.showInputDialog("Digite o código do usuário a ser removido"));JOptionPane.showInputDialog("Digite o código do usuário a ser removido");
+                    int codigo = Integer
+                            .parseInt(JOptionPane.showInputDialog("Digite o código do usuário a ser removido"));
+                    JOptionPane.showInputDialog("Digite o código do usuário a ser removido");
                     pessoaDAO.deletar(codigo);
                     JOptionPane.showMessageDialog(null, "Deletado com sucesso!");
                     break;
@@ -50,6 +49,6 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "Insira uma opção válida.");
                     break;
             }
-        } while(true);
+        } while (true);
     }
 }
