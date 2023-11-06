@@ -27,7 +27,11 @@ public class Main {
                 case 1:
                     String nome = JOptionPane.showInputDialog("Digite o nome");
                     String email = JOptionPane.showInputDialog("Digite o e-mail:");
+<<<<<<< HEAD
                     var pessoa = new Pessoa(nome, email);
+=======
+                    var pessoa = new Pessoa(nome, email, null, "", null);
+>>>>>>> a1c6f9484a97d9b262ed968273861347c96299d3
                     pessoaDAO.cadastrar(pessoa);
                     JOptionPane.showMessageDialog(null, "Usuário " + nome + " cadastrado com sucesso!");
                     break;

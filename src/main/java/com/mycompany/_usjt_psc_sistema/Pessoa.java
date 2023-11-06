@@ -10,19 +10,34 @@ package com.mycompany._usjt_psc_sistema;
  */
 public class Pessoa {
     private int codigo;
-    private String email, password;
+    private String name, email, age, gender,password;
     
-    public Pessoa (String email, String password)   {
+    public Pessoa (String name, String email, String age, String gender, String password)   {
+        this.name = name;
         this.email = email;
+        this.age = age;
+        this.gender = gender;
         this.password = password;
     }
     
     public int getCodigo()  {
         return codigo;
     }
+    
+    public String getName() {
+        return name;
+    }
 
     public String getEmail() {
         return email;
+    }
+    
+    public String getAge() {
+        return age;
+    }
+    
+    public String getGender() {
+        return gender;
     }
     
     public String getPassword() {
@@ -33,10 +48,21 @@ public class Pessoa {
         this.codigo = codigo;
     }
     
-
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public void setEmail(String email) {
         this.email = email;
     }
+    public void setAge(String age) {
+        this.age = age;
+    }
+    
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    
     
     public void setPassword (String password)   {
         if (this.password.equals(password)) {
