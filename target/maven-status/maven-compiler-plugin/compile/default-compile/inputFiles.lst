@@ -1,23 +1,14 @@
-<<<<<<< HEAD
-C:\Users\Usuario\Documents\Cursos de Webdev\USJT\20232\my-bookshelf\src\main\java\main_package\Main.java
-C:\Users\Usuario\Documents\Cursos de Webdev\USJT\20232\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\Dashboard.java
-C:\Users\Usuario\Documents\Cursos de Webdev\USJT\20232\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\LoginScreenWIP.java
-C:\Users\Usuario\Documents\Cursos de Webdev\USJT\20232\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\App.java
-C:\Users\Usuario\Documents\Cursos de Webdev\USJT\20232\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\ConnectionFactory.java
-C:\Users\Usuario\Documents\Cursos de Webdev\USJT\20232\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\TesteConexao.java
-C:\Users\Usuario\Documents\Cursos de Webdev\USJT\20232\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\Pessoa.java
-C:\Users\Usuario\Documents\Cursos de Webdev\USJT\20232\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\PessoaDAO.java
-=======
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\Course.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\ManagmentCourses.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\PessoaDAO.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\CourseDAO.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\LoginScreenWIP.java
-D:\faculdade\my-bookshelf\src\main\java\main_package\Main.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\ConnectionFactory.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\Pessoa.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\DashboardScreen.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\App.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\TesteConexao.java
-D:\faculdade\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\ManagmentStudents.java
->>>>>>> a1c6f9484a97d9b262ed968273861347c96299d3
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\TesteConexao.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\ConnectionTest.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\ConnectionFactory.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\Dashboard.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\LoginScreenWIP.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\DashboardScreen.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\App.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\main_package\Main.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\CourseDAO.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\Course.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\ManagmentCourses.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\PessoaDAO.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\ManagmentStudents.java
+C:\Users\823212382\Documents\my-bookshelf\src\main\java\com\mycompany\_usjt_psc_sistema\Pessoa.java

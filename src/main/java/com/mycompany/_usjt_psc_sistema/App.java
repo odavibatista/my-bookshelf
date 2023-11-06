@@ -11,6 +11,7 @@ package com.mycompany._usjt_psc_sistema;
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        LoginScreenWIP loginScreen = new LoginScreenWIP();
+        loginScreen.setVisible(true);
     }
 }
