@@ -6,29 +6,33 @@ package com.mycompany._usjt_psc_sistema;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class ConnectionFactory {
-    // Preencher com informações do Aiven
-    private static final String host = "mysql-eb0f1eb-project-java.a.aivencloud.com";
-    private static final String port = "22760";
-    private static final String user = "avnadmin";
-    private static final String password = "AVNS_FbWtPipks52tMpOAy1w";
-    private static final String db = "defaultdb";
-    
+    // Obtenção das variáveis do arquivo .env
+    private static Dotenv dotenv = Dotenv.configure().load();
+    private static final String host = dotenv.get("HOST");
+    private static final String port = dotenv.get("PORT");
+    private static final String user = dotenv.get("USER");
+    private static final String password = dotenv.get("PASSWORD");
+    private static final String db = dotenv.get("DB");
+    private static final String engine = dotenv.get("ENGINE");
+    private static final String ssl = dotenv.get("SSL");
+    private static String s;
+
     public static Connection conectar() throws Exception {
-        //http://dontpad.com:80/bossini
-        //String de conexão
-        //String s = "jdbc:mysql://" + host + ":" + port + "/" + db;
-        String s = String.format(
-            "jdbc:mysql://%s:%s/%s",
-            host, port, db
-        );
-        
+        // http://dontpad.com:80/bossini
+        // String de conexão
+        // String s = "jdbc:mysql://" + host + ":" + port + "/" + db;
+        s = String.format(
+                "jdbc:%s://%s:%s/%s?ssl=%s",
+                engine, host, port, db, ssl);
+
         Connection c = DriverManager.getConnection(
-                s, 
-                user, 
-                password
-        );
+                s,
+                user,
+                password);
         return c;
     }
-    
+
 }
