@@ -44,6 +44,11 @@ public class DashboardScreen extends javax.swing.JFrame {
         });
 
         managmentStudents.setText("Gerenciar Alunos");
+        managmentStudents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                managmentStudentsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,6 +96,12 @@ public class DashboardScreen extends javax.swing.JFrame {
         managmentCourses.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_managmentLessonsActionPerformed
+
+    private void managmentStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managmentStudentsActionPerformed
+        ManagmentStudents managmentStudent = new ManagmentStudents(); // Substitua "NomeDoNovoFrame" pelo nome real do seu novo JFrame
+        managmentStudent.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_managmentStudentsActionPerformed
 
     /**
      * @param args the command line arguments

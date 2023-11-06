@@ -110,7 +110,7 @@ public class LoginScreenWIP extends javax.swing.JFrame {
         String password = new String(passwordField.getPassword());
         // III -> Must see if both are admin
         try {
-            Pessoa pessoa = new Pessoa(null, login, password);
+            Pessoa pessoa = new Pessoa(null, login, null, null, password);
             PessoaDAO dao = new PessoaDAO();
             if(dao.exists(pessoa)){
                 JOptionPane.showMessageDialog(rootPane, "Bem vindo!");

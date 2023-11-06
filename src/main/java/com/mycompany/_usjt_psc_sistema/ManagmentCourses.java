@@ -29,7 +29,7 @@ public class ManagmentCourses extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        courses = new javax.swing.JComboBox<>();
+        courses = new javax.swing.JComboBox();
         courseId = new javax.swing.JTextField();
         courseName = new javax.swing.JTextField();
         courseType = new javax.swing.JTextField();
@@ -38,7 +38,7 @@ public class ManagmentCourses extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de cursos"));
 
-        courses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        courses.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         courseId.setBorder(javax.swing.BorderFactory.createTitledBorder("Id"));
 
@@ -150,7 +150,7 @@ public class ManagmentCourses extends javax.swing.JFrame {
     private javax.swing.JTextField courseId;
     private javax.swing.JTextField courseName;
     private javax.swing.JTextField courseType;
-    private javax.swing.JComboBox<String> courses;
+    private javax.swing.JComboBox courses;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

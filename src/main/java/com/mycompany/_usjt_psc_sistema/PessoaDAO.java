@@ -7,6 +7,7 @@ package com.mycompany._usjt_psc_sistema;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,21 +18,38 @@ public class PessoaDAO {
     // Oferece funcionalidades de acesso aos dados no banco de dados de tipo Pessoa
     
     public void cadastrar(Pessoa pessoa) throws Exception {
+        String name = pessoa.getName();
         String email = pessoa.getEmail();
+        String age = pessoa.getAge();
+        String gender = pessoa.getGender();
         String password = pessoa.getPassword();
         
-        //1 - Especificar o comando SQL
-        String sql = "INSERT INTO tb_pessoa (nome, fone, email) VALUES (?, ?, ?);";
-        //2 - Abrir uma conexão com o mySql
-        var fabricaDeConexoes = new ConnectionFactory();
-        var conexao = fabricaDeConexoes.conectar();
-        //3 - Preparar o comando
+        String sql = "INSERT INTO users (first_name, last_name, email, age, gender, user_password, favorite_gender, second_favorite_gender, super_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+       
+        var conexao = ConnectionFactory.conectar();
+        
         PreparedStatement ps = conexao.prepareStatement(sql);
-        //4 - Substituir os eventuais placeholders
+        
+        ps.setString(1, name);
+        ps.setString(2, "");
         ps.setString(3, email);
-        //5 - Executar o comando preparado
-        ps.execute();
-        //6 - Fechar a conexão
+        ps.setInt(4, Integer.parseInt(age));
+        ps.setString(5, gender);
+        ps.setString(6, password);
+        ps.setInt(7, 1);
+        ps.setInt(8, 2);
+        ps.setInt(9, 0);
+
+        int rowsAffected = ps.executeUpdate();
+        
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Aluno cadastrado!");
+            
+            DashboardScreen dashboardScreen = new DashboardScreen(); // Substitua "NomeDoNovoFrame" pelo nome real do seu novo JFrame
+            dashboardScreen.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno");
+        }
         ps.close();
         conexao.close();    
     }
