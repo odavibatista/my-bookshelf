@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany._usjt_psc_sistema;
+package testing_package;
 
+import com.mycompany._usjt_psc_sistema.ConnectionFactory;
 import javax.swing.JOptionPane;
 
 /**
