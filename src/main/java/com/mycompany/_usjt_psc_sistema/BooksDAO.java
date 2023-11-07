@@ -8,8 +8,8 @@ import java.sql.ResultSet;
  *
  * @author Samsung
  */
-public class CourseDAO {
-    public Course [] obterCursos () throws Exception{
+public class BooksDAO {
+    public Book [] obterCursos () throws Exception{
         String sql = "SELECT * FROM tb_curso";
         try (
             var conn = ConnectionFactory.conectar();
@@ -23,7 +23,7 @@ public class CourseDAO {
             ResultSet rs = ps.executeQuery()
         ){
             int totalDeCursos = rs.last () ? rs.getRow() : 0;
-            Course [] courses = new Course[totalDeCursos];
+            Book [] courses = new Book[totalDeCursos];
             rs.beforeFirst();
             int contador = 0;
             
@@ -31,7 +31,7 @@ public class CourseDAO {
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 String tipo = rs.getString ("tipo");
-                courses[contador++] = new Course (id, nome, tipo);
+                courses[contador++] = new Book (id, nome, tipo);
             }
             
             return courses;
