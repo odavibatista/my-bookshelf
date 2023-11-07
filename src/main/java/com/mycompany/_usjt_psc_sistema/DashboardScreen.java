@@ -34,16 +34,16 @@ public class DashboardScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de cursos e alunos"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de livros e usuários"));
 
-        managmentLessons.setText("Gerenciar Cursos");
+        managmentLessons.setText("Gerenciar Livros");
         managmentLessons.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managmentLessonsActionPerformed(evt);
             }
         });
 
-        managmentStudents.setText("Gerenciar Alunos");
+        managmentStudents.setText("Gerenciar Usuários");
         managmentStudents.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managmentStudentsActionPerformed(evt);

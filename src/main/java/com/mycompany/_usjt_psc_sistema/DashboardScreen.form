@@ -45,7 +45,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Cadastro de cursos e alunos"/>
+            <TitledBorder title="Cadastro de livros e usu&#xe1;rios"/>
           </Border>
         </Property>
       </Properties>
@@ -78,7 +78,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="managmentLessons">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gerenciar Cursos"/>
+            <Property name="text" type="java.lang.String" value="Gerenciar Livros"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="managmentLessonsActionPerformed"/>
@@ -86,7 +86,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="managmentStudents">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gerenciar Alunos"/>
+            <Property name="text" type="java.lang.String" value="Gerenciar Usu&#xe1;rios"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="managmentStudentsActionPerformed"/>

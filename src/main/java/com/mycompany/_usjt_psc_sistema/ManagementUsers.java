@@ -40,7 +40,7 @@ public class ManagementUsers extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciar Usuarios"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciar Usuários"));
 
         nameFormTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Primeiro Nome"));
 

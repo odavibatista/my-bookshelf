@@ -36,7 +36,7 @@ public class ManagementBooks extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de cursos"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de livros"));
 
         courses.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
