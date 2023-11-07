@@ -23,8 +23,8 @@ public class ConnectionFactory {
     public static Connection conectar() throws Exception {
         // String s = "jdbc:mysql://" + host + ":" + port + "/" + db;
         s = String.format(
-                "jdbc:%s://%s:%s/%s",
-                engine, host, port, db);
+                "jdbc:%s://%s:%s/%s?ssl=%s",
+                engine, host, port, db, ssl);
 
         Connection c = DriverManager.getConnection(
                 s,
