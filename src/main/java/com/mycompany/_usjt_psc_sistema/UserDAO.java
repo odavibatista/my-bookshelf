@@ -132,4 +132,31 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
+    public User findOne(User user) throws Exception {
+        String sql = "SELECT * FROM users WHERE id = ?;";
+        int id = user.getId();
+
+        try (Connection conn = ConnectionFactory.conectar();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String name = rs.getString("name");
+                    String email = rs.getString("email");
+                    String age = rs.getString("age");
+                    String gender = rs.getString("gender");
+                    String password = rs.getString("password");
+                    int firstFavorite = rs.getInt("first_favorite");
+                    int secondFavorite = rs.getInt("second_favorite");
+                    boolean superUser = rs.getBoolean("super_user");
+
+                    return new User(name, email, age, gender, password, firstFavorite, secondFavorite, superUser);
+                } else {
+                    return null;
+                }
+            }
+        }
+    }
 }
