@@ -142,4 +142,26 @@ public class BookDAO {
             e.printStackTrace();
         }
     }
+
+    public Book findOne(Book book) throws Exception {
+        String sql = "SELECT * FROM books WHERE id = ?;";
+        int id = book.getId();
+
+        try (Connection conn = ConnectionFactory.conectar();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String title = rs.getString("title");
+                    String author = rs.getString("author");
+                    int genre = rs.getInt("genre_id");
+
+                    return new Book(title, author, genre);
+                } else {
+                    return null;
+                }
+            }
+        }
+    }
 }
