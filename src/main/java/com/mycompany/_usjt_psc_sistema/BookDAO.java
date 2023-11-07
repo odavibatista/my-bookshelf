@@ -10,7 +10,7 @@ import java.sql.ResultSet;
  *
  * @author Samsung
  */
-public class BooksDAO {
+public class BookDAO {
     public Book[] getBooks() throws Exception {
         String sql = "SELECT * FROM tb_curso";
         try (
@@ -28,14 +28,22 @@ public class BooksDAO {
             int contador = 0;
 
             while (rs.next()) {
-                int id = rs.getInt("id");
                 String title = rs.getString("title");
                 int genre = rs.getInt("genre");
-                int author = rs.getInt("author");
-                courses[contador++] = new Book(id, title, genre, author);
+                String author = rs.getString("author");
+                courses[contador++] = new Book(title, genre, author);
             }
 
             return courses;
         }
+    }
+
+    public void register(Book book) throws Exception {
+        String title = book.getTitle();
+        String author = book.getAuthor();
+        int genre = book.getGenre();
+
+        String sql = "INSERT INTO users (title, author, genre_id) VALUES (?, ?, ?);";
+        var conexao = ConnectionFactory.conectar();
     }
 }

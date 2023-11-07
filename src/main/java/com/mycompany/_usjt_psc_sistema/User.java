@@ -9,7 +9,7 @@ package com.mycompany._usjt_psc_sistema;
  * @author Usuario
  */
 public class User {
-    private int codigo;
+    private int id;
     private String name, email, age, gender, password;
     private int firstFavorite, secondFavorite;
     private boolean superUser;
@@ -40,8 +40,8 @@ public class User {
 
     /* Getters */
     // Get user's id
-    public int getCodigo() {
-        return codigo;
+    public int getId() {
+        return id;
     }
 
     // Get user's name
@@ -87,8 +87,8 @@ public class User {
     /* Setters */
 
     // Set user's id
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setId(int codigo) {
+        this.id = codigo;
     }
 
     // Set user's name

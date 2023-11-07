@@ -13,11 +13,11 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario
  */
-public class PessoaDAO {
+public class UserDAO {
     // Data Access Object
     // Oferece funcionalidades de acesso aos dados no banco de dados de tipo Pessoa
 
-    public void cadastrar(User pessoa) throws Exception {
+    public void register(User pessoa) throws Exception {
         String name = pessoa.getName();
         String email = pessoa.getEmail();
         String age = pessoa.getAge();
@@ -54,8 +54,8 @@ public class PessoaDAO {
         conexao.close();
     }
 
-    public void atualizar(User pessoa) throws Exception {
-        int codigo = pessoa.getCodigo();
+    public void update(User pessoa) throws Exception {
+        int codigo = pessoa.getId();
         String email = pessoa.getEmail();
         String password = pessoa.getPassword();
 
@@ -79,12 +79,7 @@ public class PessoaDAO {
         }
     }
 
-    public void desativar(User pessoa) throws Exception {
-        // 1. Especificar o comando SQL
-
-    }
-
-    public void deletar(int codigo) throws Exception {
+    public void delete(int codigo) throws Exception {
         // 1. Especificar o comando SQL
         String sql = "DELETE FROM users WHERE cod_pessoa = ?;";
         // 2 - Abrir uma conexão com o SQL

@@ -11,47 +11,56 @@ package com.mycompany._usjt_psc_sistema;
 public class Book {
   private int id;
   private String title;
+  private String author;
   private int genre;
-  private int author;
 
-  public Book(int id, String title, int genre, int author) {
-    this.id = id;
+  public Book(String title, int genre, String author) {
     this.title = title;
-    this.genre = genre;
     this.author = author;
+    this.genre = genre;
   }
 
   /* Getters */
+
+  // Get the book's id
   public int getId() {
     return id;
   }
 
+  // Get the book's title
   public String getTitle() {
     return title;
   }
 
+  // Get the book's genre
   public int getGenre() {
     return genre;
   }
 
-  public int getAuthor() {
+  // Get the book's author
+  public String getAuthor() {
     return author;
   }
 
   /* Setters */
+
+  // Set the book's id
   public void setId(int id) {
     this.id = id;
   }
 
+  // Set the book's title
   public void setNome(String title) {
     this.title = title;
   }
 
+  // Set the book's genre
   public void setGenre(int genre) {
     this.genre = genre;
   }
 
-  public void setAuthor(int author) {
+  // Set the book's author
+  public void setAuthor(String author) {
     this.author = author;
   }
 

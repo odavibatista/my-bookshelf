@@ -130,7 +130,7 @@ public class LoginScreenWIP extends javax.swing.JFrame {
         // II -> Must fetch the user's typed password data
         String password = new String(passwordField.getPassword());
         // III -> Must see if both are admin
-        PessoaDAO dao = new PessoaDAO();
+        UserDAO dao = new UserDAO();
         try {
             if (dao.exists(login, password)) {
                 // If that's the case, welcome the user
