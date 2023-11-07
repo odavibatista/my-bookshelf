@@ -58,6 +58,10 @@ public class User {
         return password;
     }
 
+    public boolean getUserType() {
+        return superUser;
+    }
+
     /* Setters */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
@@ -84,5 +88,13 @@ public class User {
             System.out.println("Senha idêntica à atual.");
         }
         this.password = password;
+    }
+
+    public void setToAdmin() {
+        this.superUser = true;
+    }
+
+    public void setToDefaultUser() {
+        this.superUser = false;
     }
 }
