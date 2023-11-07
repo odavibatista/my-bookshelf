@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Samsung
@@ -27,6 +29,7 @@ public class ManagementBooks extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -34,7 +37,7 @@ public class ManagementBooks extends javax.swing.JFrame {
         bookGenders = new javax.swing.JComboBox();
         bookTitle = new javax.swing.JTextField();
         bookAuthor = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        registerBookButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,7 +90,12 @@ public class ManagementBooks extends javax.swing.JFrame {
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(14, Short.MAX_VALUE)));
 
-        jButton1.setText("Cadastrar");
+        registerBookButton.setText("Cadastrar");
+        registerBookButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBookButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,7 +110,8 @@ public class ManagementBooks extends javax.swing.JFrame {
                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(124, 124, 124)
-                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144,
+                                                .addComponent(registerBookButton,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 144,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(45, Short.MAX_VALUE)));
         layout.setVerticalGroup(
@@ -112,25 +121,31 @@ public class ManagementBooks extends javax.swing.JFrame {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41,
+                                .addComponent(registerBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(18, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bookGendersActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookGendersActionPerformed
+    private void registerBookButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_registerBookButtonActionPerformed
         int getterBookGender = bookGenders.getSelectedIndex() + 1;
         String getterBookTitle = bookTitle.getText();
         String getterBookAuthor = bookAuthor.getText();
 
         try {
-            Book book = new Book(getterBookTitle, getterBookGender, getterBookAuthor);
+            Book book = new Book(getterBookTitle, getterBookAuthor, getterBookGender);
             BookDAO dao = new BookDAO();
 
+            dao.register(book);
         } catch (Exception e) {
-            // TODO: handle exception
+            JOptionPane.showMessageDialog(null,
+                    "Parece que tivemos um problema. Tente novamente mais tarde.");
+            e.printStackTrace();
         }
+    }// GEN-LAST:event_registerBookButtonActionPerformed
+
+    private void bookGendersActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookGendersActionPerformed
 
     }// GEN-LAST:event_bookGendersActionPerformed
 
@@ -193,7 +208,7 @@ public class ManagementBooks extends javax.swing.JFrame {
     private javax.swing.JTextField bookAuthor;
     private javax.swing.JComboBox bookGenders;
     private javax.swing.JTextField bookTitle;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton registerBookButton;
     // End of variables declaration//GEN-END:variables
 }

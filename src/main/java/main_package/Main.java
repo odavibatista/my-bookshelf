@@ -33,7 +33,7 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "Usuário " + nome + " cadastrado com sucesso!");
                     break;
                 case 2:
-                    pessoaDAO.listar();
+                    pessoaDAO.index();
                     break;
                 case 4:
                     int codigo = Integer

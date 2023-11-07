@@ -14,10 +14,10 @@ public class Book {
   private String author;
   private int genre;
 
-  public Book(String title, int genre, String author) {
+  public Book(String title, String author, int genre) {
     this.title = title;
-    this.author = author;
     this.genre = genre;
+    this.author = author;
   }
 
   /* Getters */

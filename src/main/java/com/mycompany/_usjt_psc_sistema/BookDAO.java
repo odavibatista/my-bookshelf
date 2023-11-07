@@ -26,7 +26,7 @@ public class BookDAO {
 
                 ResultSet rs = ps.executeQuery()) {
             int totalBooks = rs.last() ? rs.getRow() : 0;
-            Book[] courses = new Book[totalBooks];
+            Book[] books = new Book[totalBooks];
             rs.beforeFirst();
             int contador = 0;
 
@@ -34,10 +34,10 @@ public class BookDAO {
                 String title = rs.getString("title");
                 int genre = rs.getInt("genre");
                 String author = rs.getString("author");
-                courses[contador++] = new Book(title, genre, author);
+                books[contador++] = new Book(title, author, genre);
             }
 
-            return courses;
+            return books;
         }
     }
 
@@ -68,5 +68,31 @@ public class BookDAO {
         }
         ps.close();
         connection.close();
+    }
+
+    public void update(Book book) throws Exception {
+        int id = book.getId();
+        String title = book.getTitle();
+        String author = book.getAuthor();
+        int genre = book.getGenre();
+
+        // 1. Especificar o comando SQL
+        String sql = "UPDATE books SET title = ?, author = ?, genre_id = ? WHERE id = ?;";
+
+        // 2 - Abrir uma conexão com o mySql
+        try {
+            var connection = ConnectionFactory.conectar();
+            var ps = connection.prepareStatement(sql);
+
+            ps.setString(1, title);
+            ps.setString(2, author);
+            ps.setInt(3, genre);
+            ps.setInt(4, id);
+
+            ps.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao editar o livro. Tente novamente.");
+            e.printStackTrace();
+        }
     }
 }

@@ -64,18 +64,17 @@ public class UserDAO {
         // 2 - Abrir uma conexão com o mySql
 
         try (
-                var conexao = ConnectionFactory.conectar();
+                var connection = ConnectionFactory.conectar();
                 // 3 - Preparar o comando
-                var ps = conexao.prepareStatement(sql);) {
+                var ps = connection.prepareStatement(sql);) {
             // 4 - Substituir os eventuais placeholders
             ps.setString(1, email);
             ps.setString(2, password);
             ps.setInt(3, codigo);
-            // 5 - Executar o comando preparado
             ps.execute();
-            // 6 - Fechar a conexão -> Já foi feito pelo try
         } catch (Exception e) {
         }
+
     }
 
     public void delete(int codigo) throws Exception {
@@ -108,7 +107,7 @@ public class UserDAO {
         }
     }
 
-    public void listar() throws Exception {
+    public void index() throws Exception {
         String sql = "SELECT * FROM users;";
 
         try (
@@ -125,7 +124,8 @@ public class UserDAO {
             }
 
         } catch (Exception e) {
-
+            JOptionPane.showMessageDialog(null, "Erro ao listar usuários. Tente novamente.");
+            e.printStackTrace();
         }
     }
 }
