@@ -18,11 +18,21 @@ It emulates a digital library review system where users are able to find and add
 
 ## Features <a name = "features"></a>
 
-In progress...
+myBookshelf allows you to access a full library of book notes and ratings. You and many people, when using myBookshelf can find info about many kinds of books and see what people think about it.
+You can:
+- Register a new book;
+- Rate books that people have already registered;
+- Search books by its name;
+- Filter books by its ratings and average classification;
+And more!
 
 ## ⛏ Used Techs/Services <a name = "techs-used"></a>
 
+- [Aiven.io](https://aiven.io/)
 - [Apache NetBeans](https://netbeans.apache.org/)
-- [Maven](https://maven.apache.org/)
-- [Javax.swing](https://docs.oracle.com/javase%2F7%2Fdocs%2Fapi%2F%2F/javax/swing/package-summary.html)
 - [Java Development Kit 17](https://jdk.java.net/17/)
+- [Java-DotEnv](https://github.com/cdimascio/dotenv-java)
+- [Javax.swing](https://docs.oracle.com/javase%2F7%2Fdocs%2Fapi%2F%2F/javax/swing/package-summary.html)
+- [Maven](https://maven.apache.org/)
+- [MySQL Connector](https://www.mysql.com/products/connector/)
+- [Postgres Connector](https://jdbc.postgresql.org/)
