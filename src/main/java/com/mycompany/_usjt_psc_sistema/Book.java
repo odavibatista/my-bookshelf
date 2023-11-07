@@ -12,10 +12,10 @@ public class Book {
   private int id;
   private String title;
   private int registererUser;
-  private String genre;
-  private String author;
+  private int genre;
+  private int author;
 
-  public Book(int id, String title, int registererUser, String genre, String author) {
+  public Book(int id, String title, int registererUser, int genre, int author) {
     this.id = id;
     this.title = title;
     this.registererUser = registererUser;
@@ -32,7 +32,7 @@ public class Book {
     return title;
   }
 
-  public String getGenre() {
+  public int getGenre() {
     return genre;
   }
 
@@ -40,7 +40,7 @@ public class Book {
     return registererUser;
   }
 
-  public String getAuthor() {
+  public int getAuthor() {
     return author;
   }
 
@@ -53,7 +53,7 @@ public class Book {
     this.title = title;
   }
 
-  public void setGenre(String genre) {
+  public void setGenre(int genre) {
     this.genre = genre;
   }
 
@@ -61,7 +61,7 @@ public class Book {
     this.registererUser = registererUser;
   }
 
-  public void setAuthor(String author) {
+  public void setAuthor(int author) {
     this.author = author;
   }
 
