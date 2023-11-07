@@ -102,12 +102,12 @@ public class PessoaDAO {
 
     }
 
-    public boolean exists(User pessoa) throws Exception {
-        String sql = "SELECT * FROM users WHERE email = ? AND user_password  = ?";
+    public boolean exists(String user, String password) throws Exception {
+        String sql = "SELECT * FROM users WHERE user = ? AND password = ?";
         try (Connection conn = ConnectionFactory.conectar();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, pessoa.getEmail());
-            ps.setString(2, pessoa.getPassword());
+            ps.setString(1, user);
+            ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
                 return rs.next();
             }

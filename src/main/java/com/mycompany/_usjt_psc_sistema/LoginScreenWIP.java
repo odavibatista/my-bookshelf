@@ -130,19 +130,14 @@ public class LoginScreenWIP extends javax.swing.JFrame {
         // II -> Must fetch the user's typed password data
         String password = new String(passwordField.getPassword());
         // III -> Must see if both are admin
+        PessoaDAO dao = new PessoaDAO();
         try {
-            User pessoa = new User(null, login, null, null, password);
-            PessoaDAO dao = new PessoaDAO();
-            if (dao.exists(pessoa)) {
+            if (dao.exists(login, password)) {
+                // If that's the case, welcome the user
                 JOptionPane.showMessageDialog(rootPane, "Bem vindo!");
-                Dashboard dt = new Dashboard();
-                dt.setVisible(true);
-
-                DashboardScreen dashboardScreen = new DashboardScreen(); // Substitua "NomeDoNovoFrame" pelo nome real
-                                                                         // do seu novo JFrame
-                dashboardScreen.setVisible(true);
-                this.dispose();
+                dispose();
             } else {
+                // If not, inform that the user/password are invalid
                 JOptionPane.showMessageDialog(null, "Usuário inválido");
             }
         } catch (Exception e) {

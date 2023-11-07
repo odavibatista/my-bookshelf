@@ -11,20 +11,25 @@ package com.mycompany._usjt_psc_sistema;
 public class User {
     private int codigo;
     private String name, email, age, gender, password;
+    private int firstFavorite, secondFavorite;
     private boolean superUser;
 
     /* Default user constructor */
-    public User(String name, String email, String age, String gender, String password) {
+    public User(String name, String email, String age, String gender, String password, int firstFavorite,
+            int secondFavorite) {
         this.name = name;
         this.email = email;
         this.age = age;
         this.gender = gender;
         this.password = password;
+        this.firstFavorite = firstFavorite;
+        this.secondFavorite = secondFavorite;
         this.superUser = false;
     }
 
     /* Admin user constructor */
-    public User(String name, String email, String age, String gender, String password, boolean superUser) {
+    public User(String name, String email, String age, String gender, String password, int firstFavorite,
+            int secondFavorite, boolean superUser) {
         this.name = name;
         this.email = email;
         this.age = age;
@@ -34,55 +39,79 @@ public class User {
     }
 
     /* Getters */
+    // Get user's id
     public int getCodigo() {
         return codigo;
     }
 
+    // Get user's name
     public String getName() {
         return name;
     }
 
+    // Get user's email
     public String getEmail() {
         return email;
     }
 
+    // Get user's age
     public String getAge() {
         return age;
     }
 
+    // Get user's gender
     public String getGender() {
         return gender;
     }
 
+    // Get user's password
     public String getPassword() {
         return password;
     }
 
+    // Get user's first favorite book genre
+    public int getFirstFavorite() {
+        return firstFavorite;
+    }
+
+    // Get user's second favorite book genre
+    public int getSecondFavorite() {
+        return secondFavorite;
+    }
+
+    // Get user's type
     public boolean getUserType() {
         return superUser;
     }
 
     /* Setters */
+
+    // Set user's id
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
+    // Set user's name
     public void setName(String name) {
         this.name = name;
     }
 
+    // Set user's email
     public void setEmail(String email) {
         this.email = email;
     }
 
+    // Set user's age
     public void setAge(String age) {
         this.age = age;
     }
 
+    // Set user's gender
     public void setGender(String gender) {
         this.gender = gender;
     }
 
+    // Set or change the user's password
     public void setPassword(String password) {
         if (this.password.equals(password)) {
             System.out.println("Senha idêntica à atual.");
@@ -90,10 +119,12 @@ public class User {
         this.password = password;
     }
 
+    // Turn user into admin
     public void setToAdmin() {
         this.superUser = true;
     }
 
+    // Turn user into default user
     public void setToDefaultUser() {
         this.superUser = false;
     }
