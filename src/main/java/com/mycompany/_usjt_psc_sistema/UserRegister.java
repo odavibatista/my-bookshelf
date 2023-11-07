@@ -6,18 +6,19 @@ package com.mycompany._usjt_psc_sistema;
 
 import com.mycompany._usjt_psc_sistema.models.User;
 import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
+import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Samsung
  */
-public class ManagementUsers extends javax.swing.JFrame {
+public class UserRegister extends javax.swing.JFrame {
 
     /**
      * Creates new form ManagementUsers
      */
-    public ManagementUsers() {
+    public UserRegister() {
         super("Gerenciar Usuarios");
         initComponents();
         setLocationRelativeTo(null);
@@ -47,6 +48,7 @@ public class ManagementUsers extends javax.swing.JFrame {
         register = new javax.swing.JButton();
         firstGender = new javax.swing.JComboBox<>();
         secondGender = new javax.swing.JComboBox<>();
+        returnButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,13 +142,25 @@ public class ManagementUsers extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        returnButton.setText("Cancelar");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(248, 248, 248)
+                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -154,11 +168,19 @@ public class ManagementUsers extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        this.dispose();
+        DashboardScreen ds = new DashboardScreen();
+        ds.setVisible(true);
+    }//GEN-LAST:event_returnButtonActionPerformed
 
     private void firstGenderActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_firstGenderActionPerformed
         // TODO add your handling code here:
@@ -216,28 +238,29 @@ public class ManagementUsers extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ManagementUsers.class.getName()).log(
+            java.util.logging.Logger.getLogger(UserRegister.class.getName()).log(
                     java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ManagementUsers.class.getName()).log(
+            java.util.logging.Logger.getLogger(UserRegister.class.getName()).log(
                     java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ManagementUsers.class.getName()).log(
+            java.util.logging.Logger.getLogger(UserRegister.class.getName()).log(
                     java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ManagementUsers.class.getName()).log(
+            java.util.logging.Logger.getLogger(UserRegister.class.getName()).log(
                     java.util.logging.Level.SEVERE,
                     null, ex);
         }
+        // </editor-fold>
         // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManagementUsers().setVisible(true);
+                new UserRegister().setVisible(true);
             }
         });
     }
@@ -251,6 +274,7 @@ public class ManagementUsers extends javax.swing.JFrame {
     private javax.swing.JTextField nameFormTextField;
     private javax.swing.JPasswordField passwordFormPasswordField;
     private javax.swing.JButton register;
+    private javax.swing.JButton returnButton;
     private javax.swing.JComboBox<String> secondGender;
     private javax.swing.JComboBox<String> userTypeField;
     // End of variables declaration//GEN-END:variables

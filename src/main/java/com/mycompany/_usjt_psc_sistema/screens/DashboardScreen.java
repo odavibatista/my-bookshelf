@@ -4,8 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema.screens;
 
-import com.mycompany._usjt_psc_sistema.ManagementBooks;
-import com.mycompany._usjt_psc_sistema.ManagementUsers;
+import com.mycompany._usjt_psc_sistema.BookRegister;
+import com.mycompany._usjt_psc_sistema.UserRegister;
 
 /**
  *
@@ -96,14 +96,14 @@ public class DashboardScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void managmentLessonsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_managmentLessonsActionPerformed
-        ManagementBooks managementBooks = new ManagementBooks(); // Substitua "NomeDoNovoFrame" pelo nome real do seu
+        BookRegister managementBooks = new BookRegister(); // Substitua "NomeDoNovoFrame" pelo nome real do seu
                                                                  // novo JFrame
         managementBooks.setVisible(true);
         this.dispose();
     }// GEN-LAST:event_managmentLessonsActionPerformed
 
     private void managmentStudentsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_managmentStudentsActionPerformed
-        ManagementUsers managementUsers = new ManagementUsers(); // Substitua "NomeDoNovoFrame" pelo nome real do seu
+        UserRegister managementUsers = new UserRegister(); // Substitua "NomeDoNovoFrame" pelo nome real do seu
                                                                  // novo JFrame
         managementUsers.setVisible(true);
         this.dispose();
