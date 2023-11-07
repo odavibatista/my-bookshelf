@@ -22,18 +22,19 @@ public class UserDAO {
 
     public void register(User pessoa) throws Exception {
         String name = pessoa.getName();
+        String surname = pessoa.getSurname();
         String email = pessoa.getEmail();
         String age = pessoa.getAge();
         String gender = pessoa.getGender();
         String password = pessoa.getPassword();
 
-        String sql = "INSERT INTO users (first_name, last_name, email, age, gender, user_password, favorite_gender, second_favorite_gender, super_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO users (name, surname, email, age, gender, user_password, favorite_gender, second_favorite_gender, super_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
         var connection = ConnectionFactory.conectar();
 
         PreparedStatement ps = connection.prepareStatement(sql);
 
         ps.setString(1, name);
-        ps.setString(2, "");
+        ps.setString(2, surname);
         ps.setString(3, email);
         ps.setInt(4, Integer.parseInt(age));
         ps.setString(5, gender);
@@ -147,6 +148,7 @@ public class UserDAO {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     String name = rs.getString("name");
+                    String surname = rs.getString("surname");
                     String email = rs.getString("email");
                     String age = rs.getString("age");
                     String gender = rs.getString("gender");
@@ -155,7 +157,7 @@ public class UserDAO {
                     int secondFavorite = rs.getInt("second_favorite");
                     boolean superUser = rs.getBoolean("super_user");
 
-                    return new User(name, email, age, gender, password, firstFavorite, secondFavorite, superUser);
+                    return new User(name, surname, email, age, gender, password, firstFavorite, secondFavorite, superUser);
                 } else {
                     return null;
                 }

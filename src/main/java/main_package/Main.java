@@ -27,7 +27,7 @@ public class Main {
                     String nome = JOptionPane.showInputDialog("Digite o nome");
                     String email = JOptionPane.showInputDialog("Digite o e-mail:");
 
-                    var pessoa = new User(nome, email, null, "", null, 0, 0, false);
+                    var pessoa = new User(nome, "", email, null, "", null, 0, 0, false);
 
                     pessoaDAO.register(pessoa);
                     JOptionPane.showMessageDialog(null, "Usuário " + nome + " cadastrado com sucesso!");

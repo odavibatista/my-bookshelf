@@ -10,14 +10,15 @@ package com.mycompany._usjt_psc_sistema.models;
  */
 public class User {
     private int id;
-    private String name, email, age, gender, password;
+    private String name, surname, email, age, gender, password;
     private int firstFavorite, secondFavorite;
     private boolean superUser;
 
     /* Default user constructor */
-    public User(String name, String email, String age, String gender, String password, int firstFavorite,
+    public User(String name, String surname, String email, String age, String gender, String password, int firstFavorite,
             int secondFavorite) {
         this.name = name;
+        this.surname = surname;
         this.email = email;
         this.age = age;
         this.gender = gender;
@@ -28,9 +29,10 @@ public class User {
     }
 
     /* Admin user constructor */
-    public User(String name, String email, String age, String gender, String password, int firstFavorite,
+    public User(String name, String surname, String email, String age, String gender, String password, int firstFavorite,
             int secondFavorite, boolean superUser) {
         this.name = name;
+        this.surname = surname;
         this.email = email;
         this.age = age;
         this.gender = gender;
@@ -47,6 +49,11 @@ public class User {
     // Get user's name
     public String getName() {
         return name;
+    }
+    
+    // Get user's surname
+    public String getSurname()  {
+        return surname;
     }
 
     // Get user's email
@@ -94,6 +101,11 @@ public class User {
     // Set user's name
     public void setName(String name) {
         this.name = name;
+    }
+    
+    // Set user's surname
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     // Set user's email
