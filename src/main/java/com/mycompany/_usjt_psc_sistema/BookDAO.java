@@ -4,6 +4,7 @@
  */
 package com.mycompany._usjt_psc_sistema;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -60,8 +61,7 @@ public class BookDAO {
         if (rowsAffected > 0) {
             JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
 
-            DashboardScreen dashboardScreen = new DashboardScreen(); // Substitua "NomeDoNovoFrame" pelo nome real do
-                                                                     // seu novo JFrame
+            DashboardScreen dashboardScreen = new DashboardScreen();
             dashboardScreen.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar livro. Tente novamente.");
@@ -92,6 +92,53 @@ public class BookDAO {
             ps.execute();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao editar o livro. Tente novamente.");
+            e.printStackTrace();
+        }
+    }
+
+    public boolean exists(Book book) throws Exception {
+        String sql = "SELECT * FROM books WHERE id = ? AND title = ? AND author = ? AND genre_id = ?;";
+        int id = book.getId();
+        String title = book.getTitle();
+        String author = book.getAuthor();
+        int genre = book.getGenre();
+
+        try (Connection conn = ConnectionFactory.conectar();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ps.setString(2, title);
+            ps.setString(3, author);
+            ps.setInt(4, genre);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next();
+            }
+        }
+    }
+
+    public void index() throws Exception {
+        String sql = "SELECT * FROM books;";
+
+        try (
+                Connection connection = ConnectionFactory.conectar();
+                // 3 - Preparar o comando
+                PreparedStatement ps = connection.prepareStatement(sql);
+
+                ResultSet rs = ps.executeQuery();) {
+            while (rs.next()) {
+                String title = rs.getString("title");
+                String author = rs.getString("author");
+                int genre = rs.getInt("genre_id");
+
+                System.out.printf("Título: %s\n", title);
+                System.out.printf("Autor: %s\n", author);
+                System.out.printf("Gênero: %d\n", genre);
+
+                rs.next();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar usuários. Tente novamente.");
             e.printStackTrace();
         }
     }

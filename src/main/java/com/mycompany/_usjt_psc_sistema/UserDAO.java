@@ -73,6 +73,8 @@ public class UserDAO {
             ps.setInt(3, codigo);
             ps.execute();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao editar o usuário. Tente novamente.");
+            e.printStackTrace();
         }
 
     }
@@ -91,6 +93,8 @@ public class UserDAO {
             ps.execute();
             // 6 - Fechar a conexão -> Já foi feito pelo try
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao deleter o usuário. Tente novamente.");
+            e.printStackTrace();
         }
 
     }
