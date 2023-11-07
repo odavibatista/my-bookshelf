@@ -17,7 +17,7 @@ public class PessoaDAO {
     // Data Access Object
     // Oferece funcionalidades de acesso aos dados no banco de dados de tipo Pessoa
 
-    public void cadastrar(Pessoa pessoa) throws Exception {
+    public void cadastrar(User pessoa) throws Exception {
         String name = pessoa.getName();
         String email = pessoa.getEmail();
         String age = pessoa.getAge();
@@ -54,7 +54,7 @@ public class PessoaDAO {
         conexao.close();
     }
 
-    public void atualizar(Pessoa pessoa) throws Exception {
+    public void atualizar(User pessoa) throws Exception {
         int codigo = pessoa.getCodigo();
         String email = pessoa.getEmail();
         String password = pessoa.getPassword();
@@ -79,7 +79,7 @@ public class PessoaDAO {
         }
     }
 
-    public void desativar(Pessoa pessoa) throws Exception {
+    public void desativar(User pessoa) throws Exception {
         // 1. Especificar o comando SQL
 
     }
@@ -102,7 +102,7 @@ public class PessoaDAO {
 
     }
 
-    public boolean exists(Pessoa pessoa) throws Exception {
+    public boolean exists(User pessoa) throws Exception {
         String sql = "SELECT * FROM users WHERE email = ? AND user_password  = ?";
         try (Connection conn = ConnectionFactory.conectar();
                 PreparedStatement ps = conn.prepareStatement(sql)) {

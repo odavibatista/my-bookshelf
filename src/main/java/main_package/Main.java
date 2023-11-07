@@ -5,7 +5,7 @@
 package main_package;
 
 import com.mycompany._usjt_psc_sistema.PessoaDAO;
-import com.mycompany._usjt_psc_sistema.Pessoa;
+import com.mycompany._usjt_psc_sistema.User;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,7 +27,7 @@ public class Main {
                     String nome = JOptionPane.showInputDialog("Digite o nome");
                     String email = JOptionPane.showInputDialog("Digite o e-mail:");
 
-                    var pessoa = new Pessoa(nome, email, null, "", null);
+                    var pessoa = new User(nome, email, null, "", null);
 
                     pessoaDAO.cadastrar(pessoa);
                     JOptionPane.showMessageDialog(null, "Usuário " + nome + " cadastrado com sucesso!");
