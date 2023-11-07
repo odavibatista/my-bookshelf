@@ -11,14 +11,12 @@ package com.mycompany._usjt_psc_sistema;
 public class Book {
   private int id;
   private String title;
-  private int registererUser;
   private int genre;
   private int author;
 
-  public Book(int id, String title, int registererUser, int genre, int author) {
+  public Book(int id, String title, int genre, int author) {
     this.id = id;
     this.title = title;
-    this.registererUser = registererUser;
     this.genre = genre;
     this.author = author;
   }
@@ -36,10 +34,6 @@ public class Book {
     return genre;
   }
 
-  public int getRegistererUser() {
-    return registererUser;
-  }
-
   public int getAuthor() {
     return author;
   }
@@ -55,10 +49,6 @@ public class Book {
 
   public void setGenre(int genre) {
     this.genre = genre;
-  }
-
-  public void setRegistererUser(int registererUser) {
-    this.registererUser = registererUser;
   }
 
   public void setAuthor(int author) {

@@ -30,10 +30,9 @@ public class BooksDAO {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String title = rs.getString("title");
-                int registererUser = rs.getInt("registererUser");
                 int genre = rs.getInt("genre");
                 int author = rs.getInt("author");
-                courses[contador++] = new Book(id, title, registererUser, genre, author);
+                courses[contador++] = new Book(id, title, genre, author);
             }
 
             return courses;

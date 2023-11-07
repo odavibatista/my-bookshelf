@@ -26,6 +26,7 @@ CREATE TABLE books(
 	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
     registerer_user INTEGER NOT NULL,
+    author VARCHAR(100) NOT NULL,
 	FOREIGN KEY (id) REFERENCES users (id),
     genre_id INTEGER NOT NULL,
 	FOREIGN KEY (genre_id) REFERENCES genres (id)
