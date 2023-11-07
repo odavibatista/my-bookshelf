@@ -4,7 +4,10 @@
  */
 package com.mycompany._usjt_psc_sistema;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,6 +47,26 @@ public class BookDAO {
         int genre = book.getGenre();
 
         String sql = "INSERT INTO users (title, author, genre_id) VALUES (?, ?, ?);";
-        var conexao = ConnectionFactory.conectar();
+        var connection = ConnectionFactory.conectar();
+
+        PreparedStatement ps = connection.prepareStatement(sql);
+
+        ps.setString(1, title);
+        ps.setString(2, author);
+        ps.setInt(3, genre);
+
+        int rowsAffected = ps.executeUpdate();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
+
+            DashboardScreen dashboardScreen = new DashboardScreen(); // Substitua "NomeDoNovoFrame" pelo nome real do
+                                                                     // seu novo JFrame
+            dashboardScreen.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar livro. Tente novamente.");
+        }
+        ps.close();
+        connection.close();
     }
 }

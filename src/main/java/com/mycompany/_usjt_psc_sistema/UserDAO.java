@@ -25,9 +25,9 @@ public class UserDAO {
         String password = pessoa.getPassword();
 
         String sql = "INSERT INTO users (first_name, last_name, email, age, gender, user_password, favorite_gender, second_favorite_gender, super_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
-        var conexao = ConnectionFactory.conectar();
+        var connection = ConnectionFactory.conectar();
 
-        PreparedStatement ps = conexao.prepareStatement(sql);
+        PreparedStatement ps = connection.prepareStatement(sql);
 
         ps.setString(1, name);
         ps.setString(2, "");
@@ -44,14 +44,13 @@ public class UserDAO {
         if (rowsAffected > 0) {
             JOptionPane.showMessageDialog(null, "Aluno cadastrado!");
 
-            DashboardScreen dashboardScreen = new DashboardScreen(); // Substitua "NomeDoNovoFrame" pelo nome real do
-                                                                     // seu novo JFrame
+            DashboardScreen dashboardScreen = new DashboardScreen();
             dashboardScreen.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno");
         }
         ps.close();
-        conexao.close();
+        connection.close();
     }
 
     public void update(User pessoa) throws Exception {
