@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany._usjt_psc_sistema;
+package com.mycompany._usjt_psc_sistema.DAOS;
 
+import com.mycompany._usjt_psc_sistema.ConnectionFactory;
+import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
+import com.mycompany._usjt_psc_sistema.models.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,12 +57,12 @@ public class UserDAO {
     }
 
     public void update(User pessoa) throws Exception {
-        int codigo = pessoa.getId();
+        int id = pessoa.getId();
         String email = pessoa.getEmail();
         String password = pessoa.getPassword();
 
         // 1. Especificar o comando SQL
-        String sql = "UPDATE users SET email = ?, password = ?, WHERE cod_pessoa = ?;";
+        String sql = "UPDATE users SET email = ?, password = ?, WHERE id = ?;";
 
         // 2 - Abrir uma conexão com o mySql
 
@@ -70,7 +73,7 @@ public class UserDAO {
             // 4 - Substituir os eventuais placeholders
             ps.setString(1, email);
             ps.setString(2, password);
-            ps.setInt(3, codigo);
+            ps.setInt(3, id);
             ps.execute();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao editar o usuário. Tente novamente.");
@@ -81,7 +84,7 @@ public class UserDAO {
 
     public void delete(int codigo) throws Exception {
         // 1. Especificar o comando SQL
-        String sql = "DELETE FROM users WHERE cod_pessoa = ?;";
+        String sql = "DELETE FROM users WHERE id = ?;";
         // 2 - Abrir uma conexão com o SQL
         try (
                 var conexao = new ConnectionFactory().conectar();
@@ -100,7 +103,7 @@ public class UserDAO {
     }
 
     public boolean exists(String user, String password) throws Exception {
-        String sql = "SELECT * FROM users WHERE user = ? AND password = ?";
+        String sql = "SELECT * FROM users WHERE email = ? AND user_password = ?";
         try (Connection conn = ConnectionFactory.conectar();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, user);

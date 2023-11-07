@@ -17,16 +17,15 @@ public class ConnectionFactory {
     private static final String password = dotenv.get("PASSWORD");
     private static final String db = dotenv.get("DATABASE");
     private static final String engine = dotenv.get("ENGINE");
-    private static final String ssl = dotenv.get("SSLMODE");
     private static String s;
 
     public static Connection conectar() throws Exception {
         // String s = "jdbc:mysql://" + host + ":" + port + "/" + db;
         s = String.format(
-                "jdbc:%s://%s:%s/%s?ssl=%s",
-                engine, host, port, db, ssl);
+                "jdbc:%s://%s:%s/%s",
+                engine, host, port, db);
 
-        Connection c = DriverManager.getConnection(
+        var c = DriverManager.getConnection(
                 s,
                 user,
                 password);

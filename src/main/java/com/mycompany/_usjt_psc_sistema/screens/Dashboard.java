@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany._usjt_psc_sistema;
+package com.mycompany._usjt_psc_sistema.screens;
 
 /**
  *
@@ -83,7 +83,7 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addContainerGap(80, Short.MAX_VALUE)));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     private void manageBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_manageBooksButtonActionPerformed
         // TODO add your handling code here:

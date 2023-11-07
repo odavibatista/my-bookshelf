@@ -4,8 +4,8 @@
  */
 package main_package;
 
-import com.mycompany._usjt_psc_sistema.UserDAO;
-import com.mycompany._usjt_psc_sistema.User;
+import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
+import com.mycompany._usjt_psc_sistema.models.User;
 import javax.swing.JOptionPane;
 
 /**

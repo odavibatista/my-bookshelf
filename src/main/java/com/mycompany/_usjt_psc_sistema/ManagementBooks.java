@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema;
 
+import com.mycompany._usjt_psc_sistema.models.Book;
+import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import javax.swing.JOptionPane;
 
 /**

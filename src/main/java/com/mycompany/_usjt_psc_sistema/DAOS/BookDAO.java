@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany._usjt_psc_sistema;
+package com.mycompany._usjt_psc_sistema.DAOS;
 
+import com.mycompany._usjt_psc_sistema.models.Book;
+import com.mycompany._usjt_psc_sistema.ConnectionFactory;
+import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class BookDAO {
     public Book[] getBooks() throws Exception {
-        String sql = "SELECT * FROM tb_curso";
+        String sql = "SELECT * FROM books";
         try (
                 var conn = ConnectionFactory.conectar();
 
@@ -47,7 +50,7 @@ public class BookDAO {
         String author = book.getAuthor();
         int genre = book.getGenre();
 
-        String sql = "INSERT INTO users (title, author, genre_id) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO books (title, author, genre_id) VALUES (?, ?, ?);";
         var connection = ConnectionFactory.conectar();
 
         PreparedStatement ps = connection.prepareStatement(sql);
