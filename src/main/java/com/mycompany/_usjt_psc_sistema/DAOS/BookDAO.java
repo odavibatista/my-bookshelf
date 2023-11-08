@@ -79,10 +79,7 @@ public class BookDAO {
         String author = book.getAuthor();
         int genre = book.getGenre();
 
-        // 1. Especificar o comando SQL
         String sql = "UPDATE books SET title = ?, author = ?, genre_id = ? WHERE id = ?;";
-
-        // 2 - Abrir uma conexão com o mySql
         try {
             var connection = ConnectionFactory.conectar();
             var ps = connection.prepareStatement(sql);
@@ -124,7 +121,6 @@ public class BookDAO {
 
         try (
                 Connection connection = ConnectionFactory.conectar();
-                // 3 - Preparar o comando
                 PreparedStatement ps = connection.prepareStatement(sql);
 
                 ResultSet rs = ps.executeQuery();) {
@@ -163,6 +159,23 @@ public class BookDAO {
                     return new Book(title, author, genre);
                 } else {
                     return null;
+                }
+            }
+        }
+    }
+
+    public void delete(int id) throws Exception {
+        String sql = "DELETE FROM books WHERE id = ?;";
+
+        try (Connection conn = ConnectionFactory.conectar();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Livro deletado com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro ao deletar livro. Tente novamente.");
                 }
             }
         }

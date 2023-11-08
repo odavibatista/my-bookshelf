@@ -4,6 +4,7 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import com.mycompany._usjt_psc_sistema.BookEdit;
 import com.mycompany._usjt_psc_sistema.BookRegister;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
@@ -148,7 +149,9 @@ public class AdminBookManager extends javax.swing.JFrame {
     }//GEN-LAST:event_adminRegisterBookButtonActionPerformed
 
     private void adminEditBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminEditBookButtonActionPerformed
-        // TODO add your handling code here:
+        BookEdit be = new BookEdit();
+        this.dispose();
+        be.setVisible(true);
     }//GEN-LAST:event_adminEditBookButtonActionPerformed
 
     private void adminFinOneBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminFinOneBookButtonActionPerformed

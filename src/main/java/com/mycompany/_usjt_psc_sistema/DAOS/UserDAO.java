@@ -17,9 +17,6 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class UserDAO {
-    // Data Access Object
-    // Oferece funcionalidades de acesso aos dados no banco de dados de tipo Pessoa
-
     public void register(User pessoa) throws Exception {
         String name = pessoa.getName();
         String surname = pessoa.getSurname();
@@ -62,16 +59,11 @@ public class UserDAO {
         String email = pessoa.getEmail();
         String password = pessoa.getPassword();
 
-        // 1. Especificar o comando SQL
         String sql = "UPDATE users SET email = ?, password = ?, WHERE id = ?;";
-
-        // 2 - Abrir uma conexão com o mySql
 
         try (
                 var connection = ConnectionFactory.conectar();
-                // 3 - Preparar o comando
                 var ps = connection.prepareStatement(sql);) {
-            // 4 - Substituir os eventuais placeholders
             ps.setString(1, email);
             ps.setString(2, password);
             ps.setInt(3, id);
@@ -84,18 +76,13 @@ public class UserDAO {
     }
 
     public void delete(int codigo) throws Exception {
-        // 1. Especificar o comando SQL
         String sql = "DELETE FROM users WHERE id = ?;";
-        // 2 - Abrir uma conexão com o SQL
         try (
                 var conexao = new ConnectionFactory().conectar();
                 // 3 - Preparar o comando
                 var ps = conexao.prepareStatement(sql);) {
-            // 4 - Substituir os eventuais placeholders
             ps.setInt(1, codigo);
-            // 5 - Executar o comando preparado
             ps.execute();
-            // 6 - Fechar a conexão -> Já foi feito pelo try
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao deleter o usuário. Tente novamente.");
             e.printStackTrace();
@@ -124,7 +111,6 @@ public class UserDAO {
 
         try (
                 var conexao = ConnectionFactory.conectar();
-                // 3 - Preparar o comando
                 var ps = conexao.prepareStatement(sql);
 
                 ResultSet rs = ps.executeQuery();) {
