@@ -94,11 +94,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Fazer Login"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginRedirectButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="registerRedirectButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrar-se"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerRedirectButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="quitButton">
           <Properties>

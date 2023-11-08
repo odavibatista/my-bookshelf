@@ -4,6 +4,9 @@
  */
 package app;
 
+import com.mycompany._usjt_psc_sistema.screens.LoginScreenWIP;
+import com.mycompany._usjt_psc_sistema.screens.RegisterScreen;
+
 /**
  *
  * @author Usuario
@@ -38,8 +41,18 @@ public class App extends javax.swing.JFrame {
         jLabel1.setText("Bem-vindo(a) ao MyBookshelf!");
 
         loginRedirectButton.setText("Fazer Login");
+        loginRedirectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginRedirectButtonActionPerformed(evt);
+            }
+        });
 
         registerRedirectButton.setText("Registrar-se");
+        registerRedirectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerRedirectButtonActionPerformed(evt);
+            }
+        });
 
         quitButton.setText("Sair");
 
@@ -93,6 +106,18 @@ public class App extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void registerRedirectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerRedirectButtonActionPerformed
+        RegisterScreen rs = new RegisterScreen();
+        this.dispose();
+        rs.setVisible(true);
+    }//GEN-LAST:event_registerRedirectButtonActionPerformed
+
+    private void loginRedirectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginRedirectButtonActionPerformed
+        LoginScreenWIP ls = new LoginScreenWIP();
+        this.dispose();
+        ls.setVisible(true);
+    }//GEN-LAST:event_loginRedirectButtonActionPerformed
 
     /**
      * @param args the command line arguments
