@@ -107,10 +107,12 @@ public class UserDAO {
         String email = user.getEmail();
         String password = user.getPassword();
         String sql = "SELECT * FROM users WHERE email = ? AND user_password = ?";
+
         try (Connection conn = ConnectionFactory.conectar();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, email);
             ps.setString(2, password);
+
             try (ResultSet rs = ps.executeQuery()) {
                 return rs.next();
             }
@@ -159,9 +161,30 @@ public class UserDAO {
                     int secondFavorite = rs.getInt("second_favorite");
                     boolean superUser = rs.getBoolean("super_user");
 
-                    return new User(name, surname, email, age, gender, password, firstFavorite, secondFavorite, superUser);
+                    return new User(name, surname, email, age, gender, password, firstFavorite, secondFavorite,
+                            superUser);
                 } else {
                     return null;
+                }
+            }
+        }
+    }
+
+    public boolean isSuperUser(User user) throws Exception {
+        String sql = "SELECT * FROM users WHERE email = ? AND user_password = ?;";
+        String email = user.getEmail();
+        String password = user.getPassword();
+
+        try (Connection conn = ConnectionFactory.conectar();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, email);
+            ps.setString(2, password);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getBoolean("super_user");
+                } else {
+                    return false;
                 }
             }
         }
