@@ -15,8 +15,24 @@ public class User {
     private boolean superUser;
     public static User user;
 
+    public User(int id, String name, String surname, String email, String age, String gender, String password,
+            int firstFavorite,
+            int secondFavorite) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.age = age;
+        this.gender = gender;
+        this.password = password;
+        this.firstFavorite = firstFavorite;
+        this.secondFavorite = secondFavorite;
+        this.superUser = false;
+    }
+
     /* Default user constructor */
-    public User(String name, String surname, String email, String age, String gender, String password, int firstFavorite,
+    public User(String name, String surname, String email, String age, String gender, String password,
+            int firstFavorite,
             int secondFavorite) {
         this.name = name;
         this.surname = surname;
@@ -30,7 +46,8 @@ public class User {
     }
 
     /* Admin user constructor */
-    public User(String name, String surname, String email, String age, String gender, String password, int firstFavorite,
+    public User(String name, String surname, String email, String age, String gender, String password,
+            int firstFavorite,
             int secondFavorite, boolean superUser) {
         this.name = name;
         this.surname = surname;
@@ -41,11 +58,11 @@ public class User {
         this.superUser = superUser;
     }
 
-    public User (String email, String password) {
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
-    
+
     /* Getters */
     // Get user's id
     public int getId() {
@@ -56,9 +73,9 @@ public class User {
     public String getName() {
         return name;
     }
-    
+
     // Get user's surname
-    public String getSurname()  {
+    public String getSurname() {
         return surname;
     }
 
@@ -108,7 +125,7 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     // Set user's surname
     public void setSurname(String surname) {
         this.surname = surname;
