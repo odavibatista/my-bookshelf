@@ -4,6 +4,9 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import com.mycompany._usjt_psc_sistema.BookRegister;
+import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
+
 /**
  *
  * @author 823212382
@@ -139,7 +142,9 @@ public class AdminBookManager extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void adminRegisterBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminRegisterBookButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        BookRegister br = new BookRegister();
+        br.setVisible(true);
     }//GEN-LAST:event_adminRegisterBookButtonActionPerformed
 
     private void adminEditBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminEditBookButtonActionPerformed
@@ -159,7 +164,9 @@ public class AdminBookManager extends javax.swing.JFrame {
     }//GEN-LAST:event_adminSeeBooksButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        AdminDashboardScreen ads = new AdminDashboardScreen();
+        ads.setVisible(true);
     }//GEN-LAST:event_returnButtonActionPerformed
 
     /**
