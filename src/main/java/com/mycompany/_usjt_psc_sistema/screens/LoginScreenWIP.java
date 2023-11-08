@@ -142,7 +142,8 @@ public class LoginScreenWIP extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Bem vindo!");
                 dispose();
                 if (dao.isSuperUser(user)) {
-
+                    AdminDashboardScreen ds = new AdminDashboardScreen();
+                    ds.setVisible(true);
                 } else {
                     DashboardScreen ds = new DashboardScreen();
                     ds.setVisible(true);

@@ -5,7 +5,7 @@
 package com.mycompany._usjt_psc_sistema.DAOS;
 
 import com.mycompany._usjt_psc_sistema.ConnectionFactory;
-import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
+import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 import com.mycompany._usjt_psc_sistema.models.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,7 +48,7 @@ public class UserDAO {
         if (rowsAffected > 0) {
             JOptionPane.showMessageDialog(null, "Aluno cadastrado!");
 
-            DashboardScreen dashboardScreen = new DashboardScreen();
+            AdminDashboardScreen dashboardScreen = new AdminDashboardScreen();
             dashboardScreen.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno");

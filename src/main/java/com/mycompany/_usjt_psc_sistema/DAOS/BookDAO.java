@@ -6,7 +6,7 @@ package com.mycompany._usjt_psc_sistema.DAOS;
 
 import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.ConnectionFactory;
-import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
+import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,7 +64,7 @@ public class BookDAO {
         if (rowsAffected > 0) {
             JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
 
-            DashboardScreen dashboardScreen = new DashboardScreen();
+            AdminDashboardScreen dashboardScreen = new AdminDashboardScreen();
             dashboardScreen.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar livro. Tente novamente.");

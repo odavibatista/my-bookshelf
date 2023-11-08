@@ -6,7 +6,7 @@ package com.mycompany._usjt_psc_sistema;
 
 import com.mycompany._usjt_psc_sistema.models.User;
 import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
-import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
+import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 import javax.swing.JOptionPane;
 
 /**
@@ -178,7 +178,7 @@ public class UserRegister extends javax.swing.JFrame {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         this.dispose();
-        DashboardScreen ds = new DashboardScreen();
+        AdminDashboardScreen ds = new AdminDashboardScreen();
         ds.setVisible(true);
     }//GEN-LAST:event_returnButtonActionPerformed
 
