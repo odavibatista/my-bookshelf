@@ -1,5 +1,7 @@
-# myBookshelf
+# MyBookshelf
 <div align="center">
+    <img src="./src/assets/my-bookshelf-logo.png">
+    <br>
     <img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"/>
     <img width="60px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg"/>
     <img width="40px" src="https://davibatista.tech/assets/images/techs/sql.png"/>
