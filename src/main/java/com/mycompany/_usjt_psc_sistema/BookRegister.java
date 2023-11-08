@@ -18,7 +18,7 @@ public class BookRegister extends javax.swing.JFrame {
      * Creates new form ManagementBooks
      */
     public BookRegister() {
-        super("Gerenciamento de livros");
+        super("MyBookshelf - Gerenciamento de livros");
         initComponents();
         setLocationRelativeTo(null);
     }

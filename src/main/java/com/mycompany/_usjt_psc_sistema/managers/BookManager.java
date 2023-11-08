@@ -16,6 +16,7 @@ public class BookManager extends javax.swing.JFrame {
      * Creates new form BookManager
      */
     public BookManager() {
+        super("MyBookshelf - Painel de Livros");
         initComponents();
     }
 

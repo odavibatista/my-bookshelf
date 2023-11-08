@@ -14,6 +14,7 @@ public class DashboardScreen extends javax.swing.JFrame {
      * Creates new form DashboardScreen
      */
     public DashboardScreen() {
+        super("MyBookshelf - Painel do Usuário");
         initComponents();
     }
 

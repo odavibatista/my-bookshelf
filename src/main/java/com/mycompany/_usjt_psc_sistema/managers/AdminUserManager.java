@@ -5,6 +5,7 @@
 package com.mycompany._usjt_psc_sistema.managers;
 
 import com.mycompany._usjt_psc_sistema.UserRegister;
+import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
 /**
  *
@@ -16,6 +17,7 @@ public class AdminUserManager extends javax.swing.JFrame {
      * Creates new form UserManager
      */
     public AdminUserManager() {
+        super("MyBookshelf - Registro de Usuários");
         initComponents();
     }
 
@@ -149,7 +151,9 @@ public class AdminUserManager extends javax.swing.JFrame {
     }//GEN-LAST:event_userDeleteButotnActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        AdminDashboardScreen ads = new AdminDashboardScreen();
+        ads.setVisible(true);
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void findOneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findOneButtonActionPerformed

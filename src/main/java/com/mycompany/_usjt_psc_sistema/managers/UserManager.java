@@ -14,6 +14,7 @@ public class UserManager extends javax.swing.JFrame {
      * Creates new form UserManager
      */
     public UserManager() {
+        super("MyBookshelf - Painel do Usuário");
         initComponents();
     }
 

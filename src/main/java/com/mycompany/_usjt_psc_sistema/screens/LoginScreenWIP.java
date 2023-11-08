@@ -18,6 +18,7 @@ public class LoginScreenWIP extends javax.swing.JFrame {
      * Creates new form LoginScreenWIP
      */
     public LoginScreenWIP() {
+        super("MyBookshelf - Login");
         initComponents();
     }
 

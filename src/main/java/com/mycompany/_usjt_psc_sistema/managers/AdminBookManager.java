@@ -14,6 +14,7 @@ public class AdminBookManager extends javax.swing.JFrame {
      * Creates new form AdminBookManager
      */
     public AdminBookManager() {
+        super("MyBookshelf - Administração de Livros");
         initComponents();
     }
 

@@ -17,6 +17,7 @@ public class AdminDashboardScreen extends javax.swing.JFrame {
      * Creates new form AdminDashboardScreen
      */
     public AdminDashboardScreen() {
+        super("MyBookshelf - Painel Administrativo");
         initComponents();
     }
 

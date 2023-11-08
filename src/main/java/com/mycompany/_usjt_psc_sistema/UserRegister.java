@@ -19,7 +19,7 @@ public class UserRegister extends javax.swing.JFrame {
      * Creates new form ManagementUsers
      */
     public UserRegister() {
-        super("Gerenciar Usuarios");
+        super("MyBookshelf - Registro de Usuários");
         initComponents();
         setLocationRelativeTo(null);
     }
