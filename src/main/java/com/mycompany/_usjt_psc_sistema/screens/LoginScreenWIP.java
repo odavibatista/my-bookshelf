@@ -5,6 +5,7 @@
 package com.mycompany._usjt_psc_sistema.screens;
 
 import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
+import com.mycompany._usjt_psc_sistema.models.User;
 import javax.swing.JOptionPane;
 
 /**
@@ -120,10 +121,12 @@ public class LoginScreenWIP extends javax.swing.JFrame {
         String login = jTextField1.getText();
         // II -> Must fetch the user's typed password data
         String password = new String(passwordField.getPassword());
+        
+        User user = new User(login, password);
         // III -> Must see if both are admin
         UserDAO dao = new UserDAO();
         try {
-            if (dao.exists(login, password)) {
+            if (dao.exists(user)) {
                 // If that's the case, welcome the user
                 JOptionPane.showMessageDialog(rootPane, "Bem vindo!");
                 dispose();

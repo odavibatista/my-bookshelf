@@ -103,11 +103,13 @@ public class UserDAO {
 
     }
 
-    public boolean exists(String user, String password) throws Exception {
+    public boolean exists(User user) throws Exception {
+        String email = user.getEmail();
+        String password = user.getPassword();
         String sql = "SELECT * FROM users WHERE email = ? AND user_password = ?";
         try (Connection conn = ConnectionFactory.conectar();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, user);
+            ps.setString(1, email);
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
                 return rs.next();

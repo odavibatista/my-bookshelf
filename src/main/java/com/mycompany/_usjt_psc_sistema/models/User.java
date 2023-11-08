@@ -13,6 +13,7 @@ public class User {
     private String name, surname, email, age, gender, password;
     private int firstFavorite, secondFavorite;
     private boolean superUser;
+    public static User user;
 
     /* Default user constructor */
     public User(String name, String surname, String email, String age, String gender, String password, int firstFavorite,
@@ -40,6 +41,11 @@ public class User {
         this.superUser = superUser;
     }
 
+    public User (String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+    
     /* Getters */
     // Get user's id
     public int getId() {
