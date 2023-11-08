@@ -83,16 +83,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Gerenciar Usu&#xe1;rios"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adminUserManagementButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="adminBookManagementButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Gerenciar Livros"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adminBookManagementButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="returnButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

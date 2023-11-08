@@ -27,6 +27,7 @@ public class AdminDashboardScreen extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -40,10 +41,25 @@ public class AdminDashboardScreen extends javax.swing.JFrame {
         panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Painel Administrativo"));
 
         adminUserManagementButton.setText("Gerenciar Usuários");
+        adminUserManagementButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminUserManagementButtonActionPerformed(evt);
+            }
+        });
 
         adminBookManagementButton.setText("Gerenciar Livros");
+        adminBookManagementButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminBookManagementButtonActionPerformed(evt);
+            }
+        });
 
         returnButton.setText("Sair");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -93,6 +109,24 @@ public class AdminDashboardScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void adminUserManagementButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_adminUserManagementButtonActionPerformed
+        AdminUserManager aum = new AdminUserManager();
+        this.dispose();
+        aum.setVisible(true);
+    }// GEN-LAST:event_adminUserManagementButtonActionPerformed
+
+    private void adminBookManagementButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_adminBookManagementButtonActionPerformed
+        AdminBookManager abm = new AdminBookManager();
+        this.dispose();
+        abm.setVisible(true);
+    }// GEN-LAST:event_adminBookManagementButtonActionPerformed
+
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_returnButtonActionPerformed
+        this.dispose();
+        LoginScreenWIP ls = new LoginScreenWIP();
+        ls.setVisible(true);
+    }// GEN-LAST:event_returnButtonActionPerformed
 
     /**
      * @param args the command line arguments
