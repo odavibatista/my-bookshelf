@@ -17,6 +17,7 @@ public class ConnectionFactory {
     private static final String password = dotenv.get("PASSWORD");
     private static final String db = dotenv.get("DATABASE");
     private static final String engine = dotenv.get("ENGINE");
+    private static final String ssl = dotenv.get("SSL");
     private static String s;
 
     public static Connection conectar() throws Exception {
