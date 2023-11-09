@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
  * @author Samsung
  */
 public class BookDAO {
+
+    /* Get all the books in the database */
     public Book[] getBooks() throws Exception {
         String sql = "SELECT * FROM books";
         try (
@@ -45,6 +47,7 @@ public class BookDAO {
         }
     }
 
+    /* Create a new book */
     public void register(Book book) throws Exception {
         String title = book.getTitle();
         String author = book.getAuthor();
@@ -73,6 +76,7 @@ public class BookDAO {
         connection.close();
     }
 
+    /* Update an existing book's info */
     public void update(Book book) throws Exception {
         int id = book.getId();
         String title = book.getTitle();
@@ -96,6 +100,7 @@ public class BookDAO {
         }
     }
 
+    /* See if the book exists in the database */
     public boolean exists(Book book) throws Exception {
         String sql = "SELECT * FROM books WHERE id = ? AND title = ? AND author = ? AND genre_id = ?;";
         int id = book.getId();
@@ -116,32 +121,7 @@ public class BookDAO {
         }
     }
 
-    public void index() throws Exception {
-        String sql = "SELECT * FROM books;";
-
-        try (
-                Connection connection = ConnectionFactory.conectar();
-                PreparedStatement ps = connection.prepareStatement(sql);
-
-                ResultSet rs = ps.executeQuery();) {
-            while (rs.next()) {
-                String title = rs.getString("title");
-                String author = rs.getString("author");
-                int genre = rs.getInt("genre_id");
-
-                System.out.printf("Título: %s\n", title);
-                System.out.printf("Autor: %s\n", author);
-                System.out.printf("Gênero: %d\n", genre);
-
-                rs.next();
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao listar usuários. Tente novamente.");
-            e.printStackTrace();
-        }
-    }
-
+    /* Find a book by its ID */
     public Book findOne(Book book) throws Exception {
         String sql = "SELECT * FROM books WHERE id = ?;";
         int id = book.getId();
@@ -164,6 +144,7 @@ public class BookDAO {
         }
     }
 
+    /* Delete a book from the database */
     public void delete(int id) throws Exception {
         String sql = "DELETE FROM books WHERE id = ?;";
 

@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class UserDAO {
+
+    /* Create a new user */
     public void register(User pessoa) throws Exception {
         String name = pessoa.getName();
         String surname = pessoa.getSurname();
@@ -56,6 +58,7 @@ public class UserDAO {
         connection.close();
     }
 
+    /* Update an user's info */
     public void update(User pessoa) throws Exception {
         int id = pessoa.getId();
         String email = pessoa.getEmail();
@@ -77,6 +80,7 @@ public class UserDAO {
 
     }
 
+    /* Delete a user from the database */
     public void delete(int codigo) throws Exception {
         String sql = "DELETE FROM users WHERE id = ?;";
         try (
@@ -92,6 +96,7 @@ public class UserDAO {
 
     }
 
+    /* See if the user exists in the database */
     public boolean exists(User user) throws Exception {
         String email = user.getEmail();
         String password = user.getPassword();
@@ -107,27 +112,7 @@ public class UserDAO {
         }
     }
 
-    public void index() throws Exception {
-        String sql = "SELECT * FROM users;";
-
-        try (
-                var conexao = ConnectionFactory.conectar();
-                var ps = conexao.prepareStatement(sql);
-
-                ResultSet rs = ps.executeQuery();) {
-            while (rs.next()) {
-                String email = rs.getString("email");
-
-                System.out.printf("email: %s\n", email);
-                rs.next();
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao listar usuários. Tente novamente.");
-            e.printStackTrace();
-        }
-    }
-
+    /* Find a user in the database */
     public User findOne(User user) throws Exception {
         String sql = "SELECT * FROM users WHERE id = ?;";
         int id = user.getId();
@@ -157,6 +142,7 @@ public class UserDAO {
         }
     }
 
+    /* See if the user is a superuser / admin */
     public boolean isSuperUser(User user) throws Exception {
         String sql = "SELECT * FROM users WHERE email = ? AND user_password = ?;";
         String email = user.getEmail();
