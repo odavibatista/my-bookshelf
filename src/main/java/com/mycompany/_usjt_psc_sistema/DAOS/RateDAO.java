@@ -17,8 +17,8 @@ import com.mycompany._usjt_psc_sistema.models.Rate;
  * @author Usuario
  */
 public class RateDAO {
-    /* Find Ratings in the database */
-    public Rate[] getAmountOfRatings(int id) throws Exception {
+    /* Find all Ratings of a book in the database */
+    public Rate[] getRatings(int id) throws Exception {
         String sql = "SELECT * FROM ratings WHERE book_id = ?";
 
         try (
