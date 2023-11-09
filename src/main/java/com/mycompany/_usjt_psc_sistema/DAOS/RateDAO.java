@@ -5,6 +5,7 @@
 package com.mycompany._usjt_psc_sistema.DAOS;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
 
@@ -16,6 +17,54 @@ import com.mycompany._usjt_psc_sistema.models.Rate;
  * @author Usuario
  */
 public class RateDAO {
+    /* Find Ratings in the database */
+    public Rate[] getRatings(int id) throws Exception {
+        String sql = "SELECT * FROM ratings WHERE book_id = ?";
+
+        try (
+                var conn = ConnectionFactory.conectar();
+
+                var ps = conn.prepareStatement(
+                        sql,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY);
+
+                ResultSet rs = ps.executeQuery()) {
+            ps.setInt(1, id);
+            int totalRatings = rs.last() ? rs.getRow() : 0;
+            Rate[] ratings = new Rate[totalRatings];
+            rs.beforeFirst();
+            int contador = 0;
+
+            while (rs.next()) {
+                int title = rs.getInt("user_id");
+                int bookId = rs.getInt("book_id");
+                int rate = rs.getInt("rating");
+                ratings[contador++] = new Rate(title, bookId, rate);
+            }
+
+            return ratings;
+        }
+    }
+
+    /* Counting the ratings of a book */
+    public int countRatings(int id) throws Exception {
+        String sql = "SELECT COUNT(*) FROM ratings WHERE book_id = ?";
+
+        try (
+                var conn = ConnectionFactory.conectar();
+
+                var ps = conn.prepareStatement(
+                        sql,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY);
+
+                ResultSet rs = ps.executeQuery()) {
+            ps.setInt(1, id);
+            int totalRatings = rs.last() ? rs.getRow() : 0;
+            return totalRatings;
+        }
+    }
 
     /* Creating new ratings */
     public void register(Rate rate) throws Exception {
