@@ -46,6 +46,22 @@ public class User {
     }
 
     /* Admin user constructor */
+    public User(int id, String name, String surname, String email, String age, String gender, String password,
+            int firstFavorite,
+            int secondFavorite, boolean superUser) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.age = age;
+        this.gender = gender;
+        this.password = password;
+        this.firstFavorite = firstFavorite;
+        this.secondFavorite = secondFavorite;
+        this.superUser = superUser;
+    }
+
+    /* Admin user constructor */
     public User(String name, String surname, String email, String age, String gender, String password,
             int firstFavorite,
             int secondFavorite, boolean superUser) {
@@ -55,6 +71,8 @@ public class User {
         this.age = age;
         this.gender = gender;
         this.password = password;
+        this.firstFavorite = firstFavorite;
+        this.secondFavorite = secondFavorite;
         this.superUser = superUser;
     }
 
