@@ -6,6 +6,8 @@ package com.mycompany._usjt_psc_sistema.DAOS;
 
 import com.mycompany._usjt_psc_sistema.ConnectionFactory;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
+import com.mycompany._usjt_psc_sistema.models.Book;
+import com.mycompany._usjt_psc_sistema.models.Rate;
 import com.mycompany._usjt_psc_sistema.models.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +19,34 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class UserDAO {
+    public Rate[] getRatings() throws Exception {
+        String sql = "SELECT * FROM ratings";
+
+        try (
+                var conn = ConnectionFactory.conectar();
+
+                var ps = conn.prepareStatement(
+                        sql,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY);
+
+                ResultSet rs = ps.executeQuery()) {
+            int totalRatings = rs.last() ? rs.getRow() : 0;
+            Rate[] ratings = new Rate[totalRatings];
+            rs.beforeFirst();
+            int contador = 0;
+
+            while (rs.next()) {
+                int title = rs.getInt("user_id");
+                int bookId = rs.getInt("book_id");
+                int rate = rs.getInt("rating");
+                ratings[contador++] = new Rate(title, bookId, rate);
+            }
+
+            return ratings;
+        }
+    }
+
     public void register(User pessoa) throws Exception {
         String name = pessoa.getName();
         String surname = pessoa.getSurname();
