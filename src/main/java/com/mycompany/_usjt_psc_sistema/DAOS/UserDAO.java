@@ -6,7 +6,7 @@ package com.mycompany._usjt_psc_sistema.DAOS;
 
 import com.mycompany._usjt_psc_sistema.ConnectionFactory;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
-import com.mycompany._usjt_psc_sistema.models.Rate;
+import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +18,42 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class UserDAO {
+
+    /* Get the existing users from the database */
+    public User[] getUsers() throws Exception {
+        String sql = "SELECT * FROM books";
+
+        try (
+                var conn = ConnectionFactory.conectar();
+
+                var ps = conn.prepareStatement(
+                        sql,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY);
+
+                ResultSet rs = ps.executeQuery()) {
+            int totalUsers = rs.last() ? rs.getRow() : 0;
+            User[] users = new User[totalUsers];
+            rs.beforeFirst();
+            int contador = 0;
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String surname = rs.getString("surname");
+                String email = rs.getString("email");
+                String age = rs.getString("age");
+                String gender = rs.getString("gender");
+                String password = rs.getString("password");
+                int firstFavorite = rs.getInt("first_favorite");
+                int secondFavorite = rs.getInt("second_favorite");
+                boolean superUser = rs.getBoolean("super_user");
+                users[contador++] = new User(name, surname, email, age, gender, password, firstFavorite,
+                        secondFavorite, superUser);
+            }
+
+            return users;
+        }
+    }
 
     /* Create a new user */
     public void register(User pessoa) throws Exception {
