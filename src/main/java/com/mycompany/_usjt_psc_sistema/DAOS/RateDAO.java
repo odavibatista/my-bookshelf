@@ -18,7 +18,7 @@ import com.mycompany._usjt_psc_sistema.models.Rate;
  */
 public class RateDAO {
     /* Find Ratings in the database */
-    public Rate[] getRatings(int id) throws Exception {
+    public Rate[] getAmountOfRatings(int id) throws Exception {
         String sql = "SELECT * FROM ratings WHERE book_id = ?";
 
         try (
@@ -44,6 +44,29 @@ public class RateDAO {
             }
 
             return ratings;
+        }
+    }
+
+    /* Get the sum of the book's ratings */
+    public int getSumOfRatings(int id) throws Exception {
+        String sql = "SELECT SUM(rating) FROM ratings WHERE book_id = ?";
+
+        try (
+                var conn = ConnectionFactory.conectar();
+
+                var ps = conn.prepareStatement(
+                        sql,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY);
+
+                ResultSet rs = ps.executeQuery()) {
+            ps.setInt(1, id);
+            int totalRatings = rs.last() ? rs.getRow() : 0;
+            int sumOfRatings = 0;
+            if (totalRatings > 0) {
+                sumOfRatings = rs.getInt("SUM(rating)");
+            }
+            return sumOfRatings;
         }
     }
 
