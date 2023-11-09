@@ -50,6 +50,7 @@ public class UserDAO {
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno");
         }
+
         ps.close();
         connection.close();
     }
@@ -99,7 +100,6 @@ public class UserDAO {
                 PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, email);
             ps.setString(2, password);
-
             try (ResultSet rs = ps.executeQuery()) {
                 return rs.next();
             }
