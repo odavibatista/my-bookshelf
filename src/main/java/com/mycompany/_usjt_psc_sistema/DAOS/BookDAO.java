@@ -70,24 +70,34 @@ public class BookDAO {
         String author = book.getAuthor();
         int genre = book.getGenre();
 
-        String sql = "INSERT INTO books (title, author, genre_id) VALUES (?, ?, ?);";
-        var connection = ConnectionFactory.conectar();
+        int dialogResult = JOptionPane.showConfirmDialog(null,
+                "Tem certeza que deseja cadastrar o livro " + title + ", do autor " + author + " na categoria " + genre
+                        + "?",
+                "Confirmação",
+                JOptionPane.YES_NO_OPTION);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            String sql = "INSERT INTO books (title, author, genre_id) VALUES (?, ?, ?);";
+            var connection = ConnectionFactory.conectar();
 
-        PreparedStatement ps = connection.prepareStatement(sql);
+            PreparedStatement ps = connection.prepareStatement(sql);
 
-        ps.setString(1, title);
-        ps.setString(2, author);
-        ps.setInt(3, genre);
+            ps.setString(1, title);
+            ps.setString(2, author);
+            ps.setInt(3, genre);
 
-        int rowsAffected = ps.executeUpdate();
+            int rowsAffected = ps.executeUpdate();
 
-        if (rowsAffected > 0) {
-            JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar livro. Tente novamente.");
+            }
+            ps.close();
+            connection.close();
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar livro. Tente novamente.");
+            JOptionPane.showMessageDialog(null, "Cadastro cancelado.");
         }
-        ps.close();
-        connection.close();
+
     }
 
     /* Update an existing book's info */
