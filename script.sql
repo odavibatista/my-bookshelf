@@ -30,6 +30,7 @@ CREATE TABLE books(
 	FOREIGN KEY (genre_id) REFERENCES genres (id)
 );
 
+-- Ratings table creation
 CREATE TABLE ratings(
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_id INTEGER NOT NULL,

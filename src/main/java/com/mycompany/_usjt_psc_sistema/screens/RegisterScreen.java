@@ -14,7 +14,10 @@ public class RegisterScreen extends javax.swing.JFrame {
      * Creates new form RegisterScreen
      */
     public RegisterScreen() {
+        super("MyBookshelf - Registro");
         initComponents();
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
