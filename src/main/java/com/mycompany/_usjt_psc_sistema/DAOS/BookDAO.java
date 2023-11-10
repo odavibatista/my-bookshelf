@@ -66,9 +66,6 @@ public class BookDAO {
 
         if (rowsAffected > 0) {
             JOptionPane.showMessageDialog(null, "Livro cadastrado com sucesso!");
-
-            AdminDashboardScreen dashboardScreen = new AdminDashboardScreen();
-            dashboardScreen.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar livro. Tente novamente.");
         }

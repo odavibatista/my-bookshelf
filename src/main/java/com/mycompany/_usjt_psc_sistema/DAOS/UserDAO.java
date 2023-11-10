@@ -6,7 +6,6 @@ package com.mycompany._usjt_psc_sistema.DAOS;
 
 import com.mycompany._usjt_psc_sistema.ConnectionFactory;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
-import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
