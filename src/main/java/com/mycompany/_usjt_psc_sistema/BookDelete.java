@@ -44,6 +44,7 @@ public class BookDelete extends javax.swing.JFrame {
                                 .createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Remover Livro")));
 
                 idField.setBorder(javax.swing.BorderFactory.createTitledBorder("ID do Livro"));
+
                 try {
                         BookDAO dao = new BookDAO();
                         int maxId = dao.getBooks().length;
