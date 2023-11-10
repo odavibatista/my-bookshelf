@@ -19,6 +19,7 @@ public class AdminUserManager extends javax.swing.JFrame {
     public AdminUserManager() {
         super("MyBookshelf - Registro de Usuários");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

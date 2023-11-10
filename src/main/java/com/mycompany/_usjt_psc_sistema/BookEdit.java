@@ -20,7 +20,9 @@ public class BookEdit extends javax.swing.JFrame {
      * Creates new form BookEdit
      */
     public BookEdit() {
+        super("MyBookshelf - Editar Livro");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

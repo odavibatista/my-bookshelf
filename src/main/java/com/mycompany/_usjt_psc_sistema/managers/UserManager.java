@@ -16,6 +16,7 @@ public class UserManager extends javax.swing.JFrame {
     public UserManager() {
         super("MyBookshelf - Painel do Usuário");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

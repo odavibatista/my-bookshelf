@@ -21,6 +21,7 @@ public class AdminBookManager extends javax.swing.JFrame {
     public AdminBookManager() {
         super("MyBookshelf - Administração de Livros");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

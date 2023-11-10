@@ -20,6 +20,7 @@ public class LoginScreenWIP extends javax.swing.JFrame {
     public LoginScreenWIP() {
         super("MyBookshelf - Login");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -55,11 +56,6 @@ public class LoginScreenWIP extends javax.swing.JFrame {
         });
 
         passwordField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite sua senha"));
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
-            }
-        });
 
         cancelLoginButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cancelLoginButton.setText("Cancelar");
@@ -158,10 +154,6 @@ public class LoginScreenWIP extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }// GEN-LAST:event_loginButtonActionPerformed
-
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_passwordFieldActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments

@@ -18,7 +18,9 @@ public class UserEdit extends javax.swing.JFrame {
      * Creates new form UserEdit
      */
     public UserEdit() {
+        super("MyBookshelf - Editar Informações");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

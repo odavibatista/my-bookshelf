@@ -16,6 +16,7 @@ public class DashboardScreen extends javax.swing.JFrame {
     public DashboardScreen() {
         super("MyBookshelf - Painel do Usuário");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

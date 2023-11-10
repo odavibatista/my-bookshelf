@@ -19,6 +19,7 @@ public class AdminDashboardScreen extends javax.swing.JFrame {
     public AdminDashboardScreen() {
         super("MyBookshelf - Painel Administrativo");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

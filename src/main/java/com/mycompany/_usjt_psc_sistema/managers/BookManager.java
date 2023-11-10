@@ -18,6 +18,7 @@ public class BookManager extends javax.swing.JFrame {
     public BookManager() {
         super("MyBookshelf - Painel de Livros");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

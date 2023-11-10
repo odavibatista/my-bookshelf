@@ -48,11 +48,7 @@ public class BookRegister extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de Livros"));
 
         bookGenders.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Romance", "Ficção", "Técnico" }));
-        bookGenders.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookGendersActionPerformed(evt);
-            }
-        });
+
 
         bookTitle.setBorder(javax.swing.BorderFactory.createTitledBorder("Título do Livro"));
 
@@ -150,10 +146,6 @@ public class BookRegister extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }// GEN-LAST:event_registerBookButtonActionPerformed
-
-    private void bookGendersActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookGendersActionPerformed
-
-    }// GEN-LAST:event_bookGendersActionPerformed
 
     /**
      * @param args the command line arguments

@@ -20,6 +20,7 @@ public class BookDelete extends javax.swing.JFrame {
     public BookDelete() {
         super("MyBookshelf - Remover Livro");
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
