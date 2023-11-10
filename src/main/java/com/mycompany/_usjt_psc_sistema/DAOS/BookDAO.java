@@ -47,6 +47,23 @@ public class BookDAO {
         }
     }
 
+    /* Get the book's name */
+    public String getBookName(int id) throws Exception {
+        String sql = "SELECT title FROM books WHERE id = ?;";
+        try (
+                var conn = ConnectionFactory.conectar();
+
+                var ps = conn.prepareStatement(
+                        sql,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getString("title");
+        }
+    }
+
     /* Create a new book */
     public void register(Book book) throws Exception {
         String title = book.getTitle();
