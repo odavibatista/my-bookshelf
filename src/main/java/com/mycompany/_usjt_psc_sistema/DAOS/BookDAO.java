@@ -6,7 +6,6 @@ package com.mycompany._usjt_psc_sistema.DAOS;
 
 import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.ConnectionFactory;
-import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,6 +60,34 @@ public class BookDAO {
             ResultSet rs = ps.executeQuery();
             rs.next();
             return rs.getString("title");
+        }
+    }
+
+    /* Search a book by its name */
+    public Book[] search(String title) throws Exception {
+        String sql = "SELECT * FROM books WHERE title LIKE ?;";
+        try (
+                var conn = ConnectionFactory.conectar();
+
+                var ps = conn.prepareStatement(
+                        sql,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY)) {
+            ps.setString(1, "%" + title + "%");
+            ResultSet rs = ps.executeQuery();
+            int totalBooks = rs.last() ? rs.getRow() : 0;
+            Book[] books = new Book[totalBooks];
+            rs.beforeFirst();
+            int contador = 0;
+
+            while (rs.next()) {
+                String bookTitle = rs.getString("title");
+                int genre = rs.getInt("genre_id");
+                String author = rs.getString("author");
+                books[contador++] = new Book(bookTitle, author, genre);
+            }
+
+            return books;
         }
     }
 
