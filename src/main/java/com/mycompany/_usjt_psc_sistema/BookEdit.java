@@ -7,9 +7,7 @@ package com.mycompany._usjt_psc_sistema;
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
-import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
-import com.mycompany._usjt_psc_sistema.models.Genre;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
 import helpers.GenreNames;
