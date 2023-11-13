@@ -63,6 +63,7 @@
                               <Component id="adminFinOneBookButton" min="-2" pref="344" max="-2" attributes="0"/>
                               <Component id="adminEditBookButton" min="-2" pref="344" max="-2" attributes="0"/>
                               <Component id="adminRegisterBookButton" min="-2" pref="344" max="-2" attributes="0"/>
+                              <Component id="genreRegisterButton" alignment="0" min="-2" pref="344" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -88,8 +89,10 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="adminSeeBooksButton" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="returnButton" pref="32" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="genreRegisterButton" min="-2" pref="39" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <Component id="returnButton" min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -141,6 +144,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="genreRegisterButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cadastrar Novos G&#xea;neros"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="genreRegisterButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

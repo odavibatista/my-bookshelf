@@ -7,6 +7,7 @@ package com.mycompany._usjt_psc_sistema.managers;
 import com.mycompany._usjt_psc_sistema.BookDelete;
 import com.mycompany._usjt_psc_sistema.BookEdit;
 import com.mycompany._usjt_psc_sistema.BookRegister;
+import com.mycompany._usjt_psc_sistema.GenreRegister;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
 /**
@@ -31,7 +32,7 @@ public class AdminBookManager extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -41,7 +42,7 @@ public class AdminBookManager extends javax.swing.JFrame {
         adminDeleteBookButton = new javax.swing.JButton();
         adminSeeBooksButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
-        
+        genreRegisterButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,77 +90,78 @@ public class AdminBookManager extends javax.swing.JFrame {
             }
         });
 
+        genreRegisterButton.setText("Cadastrar Novos Gêneros");
+        genreRegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genreRegisterButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(17, 17, 17)
-                                                .addGroup(jPanel1Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(adminSeeBooksButton,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 344,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(adminDeleteBookButton,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 344,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(adminFinOneBookButton,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 344,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(adminEditBookButton,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 344,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(adminRegisterBookButton,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 344,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(133, 133, 133)
-                                                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(17, Short.MAX_VALUE)));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(adminSeeBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(adminDeleteBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(adminFinOneBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(adminEditBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(adminRegisterBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(genreRegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(adminRegisterBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(adminEditBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(adminFinOneBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(adminDeleteBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(adminSeeBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                                .addContainerGap()));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(adminRegisterBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(adminEditBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(adminFinOneBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(adminDeleteBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(adminSeeBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(genreRegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void genreRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreRegisterButtonActionPerformed
+        this.dispose();
+        GenreRegister gr = new GenreRegister();
+        gr.setVisible(true);
+    }//GEN-LAST:event_genreRegisterButtonActionPerformed
 
     private void adminRegisterBookButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_adminRegisterBookButtonActionPerformed
         this.dispose();
@@ -242,6 +244,7 @@ public class AdminBookManager extends javax.swing.JFrame {
     private javax.swing.JButton adminFinOneBookButton;
     private javax.swing.JButton adminRegisterBookButton;
     private javax.swing.JButton adminSeeBooksButton;
+    private javax.swing.JButton genreRegisterButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton returnButton;
     // End of variables declaration//GEN-END:variables
