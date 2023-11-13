@@ -7,6 +7,9 @@ package com.mycompany._usjt_psc_sistema;
 import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.Genre;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
+
+import helpers.GenreNames;
+
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
 
@@ -46,17 +49,7 @@ public class BookRegister extends javax.swing.JFrame {
         bookAuthor = new javax.swing.JTextField();
         registerBookButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
-                GenreDAO genreDAO = new GenreDAO();
-        Genre[] genres = null;
-        try {
-                genres = genreDAO.getGenres();
-        } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Erro ao buscar gêneros: " + e.getMessage());
-        }
-        String[] genreNames = new String[genres.length];
-        for (int i = 0; i < genres.length; i++) {
-                genreNames[i] = genres[i].getName();
-        }
+        String[] genreNames = GenreNames.getGenreNames();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

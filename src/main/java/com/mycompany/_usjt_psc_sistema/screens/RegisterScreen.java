@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema.screens;
 
+import helpers.GenreNames;
+
 /**
  *
  * @author Usuario
@@ -39,6 +41,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         firstFavorite = new javax.swing.JComboBox<>();
         secondFavorite = new javax.swing.JComboBox<>();
         returnButton = new javax.swing.JButton();
+        String[] genreNames = GenreNames.getGenreNames();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,10 +60,10 @@ public class RegisterScreen extends javax.swing.JFrame {
 
         passwordField.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
 
-        firstFavorite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Romance", "Ficção", "Técnico" }));
+        firstFavorite.setModel(new javax.swing.DefaultComboBoxModel<>(genreNames));
         firstFavorite.setBorder(javax.swing.BorderFactory.createTitledBorder("1º Gênero Favorito"));
 
-        secondFavorite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Romance", "Ficção", "Técnico" }));
+        secondFavorite.setModel(new javax.swing.DefaultComboBoxModel<>(genreNames));
         secondFavorite.setBorder(javax.swing.BorderFactory.createTitledBorder("2º Gênero Favorito"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
