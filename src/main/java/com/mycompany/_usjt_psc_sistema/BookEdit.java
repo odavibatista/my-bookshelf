@@ -7,7 +7,9 @@ package com.mycompany._usjt_psc_sistema;
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
+import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
+import com.mycompany._usjt_psc_sistema.models.Genre;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
 /**
@@ -34,7 +36,6 @@ public class BookEdit extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         idField = new javax.swing.JTextField();
@@ -43,6 +44,17 @@ public class BookEdit extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         editConfirmButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
+                GenreDAO genreDAO = new GenreDAO();
+                Genre[] genres = null;
+                try {
+                        genres = genreDAO.getGenres();
+                } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Erro ao buscar gêneros: " + e.getMessage());
+                }
+                String[] genreNames = new String[genres.length];
+                for (int i = 0; i < genres.length; i++) {
+                genreNames[i] = genres[i].getName();
+                }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,7 +75,10 @@ public class BookEdit extends javax.swing.JFrame {
 
         authorField.setBorder(javax.swing.BorderFactory.createTitledBorder("Autor"));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Romance", "Ficção", "Técnico" }));
+        // Create a genre array to populate the combo box
+        
+        
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(genreNames));
         jComboBox1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gênero"));
 
         editConfirmButton.setText("Salvar Alterações");
@@ -179,7 +194,7 @@ public class BookEdit extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception{
         /* Set the Nimbus look and feel */
         // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
         // (optional) ">
@@ -189,6 +204,7 @@ public class BookEdit extends javax.swing.JFrame {
          * For details see
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

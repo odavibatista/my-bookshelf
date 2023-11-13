@@ -35,7 +35,7 @@ public class GenreDAO {
             int contador = 0;
 
             while (rs.next()) {
-                String name = rs.getString("name");
+                String name = rs.getString("genre_name");
                 genres[contador++] = new Genre(name);
             }
 
@@ -46,7 +46,7 @@ public class GenreDAO {
     /* Register a new genre */
     public void register(Genre genre) throws Exception {
         String name = genre.getName();
-        String sql = "INSERT INTO genres (name) VALUES (?)";
+        String sql = "INSERT INTO genres (genre_name) VALUES (?)";
 
         try (
                 var conn = ConnectionFactory.conectar();
@@ -65,7 +65,7 @@ public class GenreDAO {
     public void edit(Genre genre) throws Exception {
         int id = genre.getId();
         String name = genre.getName();
-        String sql = "UPDATE genres SET name = ? WHERE id = ?";
+        String sql = "UPDATE genres SET genre_name = ? WHERE id = ?";
 
         try (
                 var conn = ConnectionFactory.conectar();
