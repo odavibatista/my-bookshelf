@@ -41,6 +41,7 @@ public class AdminBookManager extends javax.swing.JFrame {
         adminDeleteBookButton = new javax.swing.JButton();
         adminSeeBooksButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
+        
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

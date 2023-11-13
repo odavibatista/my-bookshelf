@@ -5,8 +5,11 @@
 package com.mycompany._usjt_psc_sistema;
 
 import com.mycompany._usjt_psc_sistema.models.Book;
+import com.mycompany._usjt_psc_sistema.models.Genre;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
+import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -43,12 +46,23 @@ public class BookRegister extends javax.swing.JFrame {
         bookAuthor = new javax.swing.JTextField();
         registerBookButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
+                GenreDAO genreDAO = new GenreDAO();
+        Genre[] genres = null;
+        try {
+                genres = genreDAO.getGenres();
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro ao buscar gêneros: " + e.getMessage());
+        }
+        String[] genreNames = new String[genres.length];
+        for (int i = 0; i < genres.length; i++) {
+                genreNames[i] = genres[i].getName();
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de Livros"));
 
-        bookGenders.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Romance", "Ficção", "Técnico" }));
+        bookGenders.setModel(new javax.swing.DefaultComboBoxModel(genreNames));
 
         bookTitle.setBorder(javax.swing.BorderFactory.createTitledBorder("Título do Livro"));
 

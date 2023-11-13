@@ -12,6 +12,8 @@ import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.Genre;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
+import helpers.GenreNames;
+
 /**
  *
  * @author Usuario
@@ -44,17 +46,7 @@ public class BookEdit extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         editConfirmButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
-                GenreDAO genreDAO = new GenreDAO();
-                Genre[] genres = null;
-                try {
-                        genres = genreDAO.getGenres();
-                } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, "Erro ao buscar gêneros: " + e.getMessage());
-                }
-                String[] genreNames = new String[genres.length];
-                for (int i = 0; i < genres.length; i++) {
-                genreNames[i] = genres[i].getName();
-                }
+        String[] genreNames = GenreNames.getGenreNames();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

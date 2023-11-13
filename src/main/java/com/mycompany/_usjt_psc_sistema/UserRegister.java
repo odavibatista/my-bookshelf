@@ -7,6 +7,9 @@ package com.mycompany._usjt_psc_sistema;
 import com.mycompany._usjt_psc_sistema.models.User;
 import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
+
+import helpers.GenreNames;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -50,6 +53,7 @@ public class UserRegister extends javax.swing.JFrame {
                 firstGender = new javax.swing.JComboBox<>();
                 secondGender = new javax.swing.JComboBox<>();
                 returnButton = new javax.swing.JButton();
+                String[] genreNames = GenreNames.getGenreNames();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,12 +81,10 @@ public class UserRegister extends javax.swing.JFrame {
                         }
                 });
 
-                firstGender.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                new String[] { "Romance", "Ficção", "Técnico" }));
+                firstGender.setModel(new javax.swing.DefaultComboBoxModel<>(genreNames));
                 firstGender.setBorder(javax.swing.BorderFactory.createTitledBorder("Primeiro Gênero Favorito"));
 
-                secondGender.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                new String[] { "Romance", "Ficção", "Técnico" }));
+                secondGender.setModel(new javax.swing.DefaultComboBoxModel<>(genreNames));
                 secondGender.setBorder(javax.swing.BorderFactory.createTitledBorder("Segundo Gênero Favorito"));
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

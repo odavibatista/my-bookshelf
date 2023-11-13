@@ -8,6 +8,8 @@ import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
 import com.mycompany._usjt_psc_sistema.models.User;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
+import helpers.GenreNames;
+
 /**
  *
  * @author Usuario
@@ -47,6 +49,8 @@ public class UserEdit extends javax.swing.JFrame {
         confirmEditionButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         userPasswordField = new javax.swing.JPasswordField();
+        String[] genreNames = GenreNames.getGenreNames();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,10 +72,10 @@ public class UserEdit extends javax.swing.JFrame {
         userTypeField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Padrão" }));
         userTypeField.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Usuário"));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Romance", "Ficção", "Técnico" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(genreNames));
         jComboBox1.setBorder(javax.swing.BorderFactory.createTitledBorder("Primeiro Gênero Favorito"));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Romance", "Ficção", "Técnico" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(genreNames));
         jComboBox2.setBorder(javax.swing.BorderFactory.createTitledBorder("Segundo Gênero Favorito"));
 
         confirmEditionButton.setText("Confirmar Edição");
