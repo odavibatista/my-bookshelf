@@ -43,7 +43,12 @@ public class RateDAO {
                 ratings[contador++] = new Rate(title, bookId, rate);
             }
 
-            return ratings;
+            // If there are no ratings, return null
+            if (totalRatings == 0) {
+                return null;
+            } else {
+                return ratings;
+            }
         }
     }
 
