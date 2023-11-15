@@ -217,15 +217,20 @@ public class AdminBookManager extends javax.swing.JFrame {
                 String bookTitle = book.getTitle();
                 String bookAuthor = book.getAuthor();
                 int bookGenre = book.getGenre();
+                int ratins = rates.countRatings(bookId);
+                // Get all the ratings for the book
+                // Get the sum of the ratings
+                // Get the average of the ratings
                 
                 message += "ID: " + bookId + "\n";
                 message += "Título: " + bookTitle + "\n";
                 message += "Autor: " + bookAuthor + "\n";
                 message += "Gênero: " + bookGenre + "\n";
+                message += "Avaliações: " + ratins + "\n";
             }
             JOptionPane.showMessageDialog(null, message);
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
         }
         
     }// GEN-LAST:event_adminSeeBooksButtonActionPerformed

@@ -18,7 +18,7 @@ import com.mycompany._usjt_psc_sistema.models.Rate;
  */
 public class RateDAO {
     /* Find all Ratings of a book in the database */
-    public Rate[] getRatings(int id) throws Exception {
+    public int[] getRatings(int id) throws Exception {
         String sql = "SELECT * FROM ratings WHERE book_id = ?";
 
         try (
@@ -32,26 +32,18 @@ public class RateDAO {
                 ResultSet rs = ps.executeQuery()) {
             ps.setInt(1, id);
             int totalRatings = rs.last() ? rs.getRow() : 0;
-            Rate[] ratings = new Rate[totalRatings];
+            int[] ratings = new int[totalRatings];
             rs.beforeFirst();
             int contador = 0;
 
+            ratings[0] = 0;
             while (rs.next()) {
-                int title = rs.getInt("user_id");
-                int bookId = rs.getInt("book_id");
                 int rate = rs.getInt("rating");
-                ratings[contador++] = new Rate(title, bookId, rate);
+                ratings[contador] = rate;
             }
-
-            // If there are no ratings, return null
-            if (totalRatings == 0) {
-                // Create a dummy rate to avoid null pointer exception
-                Rate dummyRate = new Rate(0, 0, 0);
-                Rate[] dummyArray = { dummyRate };
-                return dummyArray;
-            } else {
-                return ratings;
-            }
+            
+            return ratings;
+            
         }
     }
 
@@ -92,6 +84,7 @@ public class RateDAO {
 
                 ResultSet rs = ps.executeQuery()) {
             ps.setInt(1, id);
+            // Get the number of ratings, even if there's only one
             int totalRatings = rs.last() ? rs.getRow() : 0;
             return totalRatings;
         }
