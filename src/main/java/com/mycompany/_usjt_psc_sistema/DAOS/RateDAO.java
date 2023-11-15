@@ -96,7 +96,6 @@ public class RateDAO {
 
     /* Creating new ratings */
     public void register(Rate rate) throws Exception {
-        int id = rate.getId();
         int bookId = rate.getBookId();
         int userId = rate.getUserId();
         int rating = rate.getRate();
@@ -106,20 +105,19 @@ public class RateDAO {
             JOptionPane.showMessageDialog(null, "Você já avaliou este livro.");
             return;
         } else {
-            String sql = "INSERT INTO ratings (id, book_id, user_id, rating) VALUES (?, ?, ?, ?);";
+            String sql = "INSERT INTO ratings (user_id, book_id, rating) VALUES (?, ?, ?);";
             var connection = ConnectionFactory.conectar();
 
             PreparedStatement ps = connection.prepareStatement(sql);
 
-            ps.setInt(1, id);
+            ps.setInt(1, userId);
             ps.setInt(2, bookId);
-            ps.setInt(3, userId);
-            ps.setInt(4, rating);
+            ps.setInt(3, rating);
 
             int rowsAffected = ps.executeUpdate();
 
             if (rowsAffected > 0) {
-                System.out.println("Avaliação cadastrada!");
+                System.out.println("Avaliação registrada com sucesso!");
             } else {
                 System.out.println("Erro ao cadastrar avaliação");
             }

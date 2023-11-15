@@ -4,6 +4,13 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import javax.swing.JOptionPane;
+
+import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
+import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
+import com.mycompany._usjt_psc_sistema.models.Book;
+import com.mycompany._usjt_psc_sistema.models.Rate;
+
 import helpers.BookNames;
 import helpers.GenreNames;
 
@@ -37,6 +44,8 @@ public class AdminRateBook extends javax.swing.JFrame {
         rateConfirmButton = new javax.swing.JButton();
         rateConfirmButton1 = new javax.swing.JButton();
         ratingAmount = new javax.swing.JTextField();
+        String[] bookNames = BookNames.getBookNames();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,9 +54,14 @@ public class AdminRateBook extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Qual livro deseja avaliar?");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(bookNames));
 
         rateConfirmButton.setText("Avaliar");
+        rateConfirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rateConfirmButtonActionPerformed(evt);
+            }
+        });
 
         rateConfirmButton1.setText("Cancelar");
 
@@ -108,6 +122,24 @@ public class AdminRateBook extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rateConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rateConfirmButtonActionPerformed
+        RateDAO rateDAO = new RateDAO();
+        BookDAO bookDAO = new BookDAO();
+
+        try {
+            String bookName = jComboBox1.getSelectedItem().toString();
+            Book book = bookDAO.searchByName(bookName);
+            int bookId = book.getId();
+            int rate = Integer.parseInt(ratingAmount.getText());
+            Rate newRate = new Rate(3, bookId, rate);
+            rateDAO.register(newRate);
+
+            this.dispose();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_rateConfirmButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -33,12 +33,14 @@ CREATE TABLE books(
 -- Ratings table creation
 CREATE TABLE ratings(
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    user_id INTEGER NOT NULL,
-    book_id INTEGER NOT NULL,
+    u_id INTEGER NOT NULL,
+    b_id INTEGER NOT NULL,
     rating INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users (id),
-    FOREIGN KEY (book_id) REFERENCES books (id)
+    FOREIGN KEY (u_id) REFERENCES users (id),
+    FOREIGN KEY (b_id) REFERENCES books (id)
 );
+
+drop table ratings;
 
 -- Genres registering
 INSERT INTO genres (genre_name) VALUES

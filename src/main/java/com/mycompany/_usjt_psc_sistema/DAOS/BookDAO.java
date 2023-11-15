@@ -91,6 +91,27 @@ public class BookDAO {
         }
     }
 
+    /* Find a single book by its name */
+    public Book searchByName(String title) throws Exception {
+        String sql = "SELECT * FROM books WHERE title = ?;";
+        try (
+                var conn = ConnectionFactory.conectar();
+
+                var ps = conn.prepareStatement(
+                        sql,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY)) {
+            ps.setString(1, title);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int id = rs.getInt("id");
+            String bookTitle = rs.getString("title");
+            int genre = rs.getInt("genre_id");
+            String author = rs.getString("author");
+            return new Book(id, bookTitle, author, genre);
+        }
+    }
+
     /* Create a new book */
     public void register(Book book) throws Exception {
         String title = book.getTitle();
