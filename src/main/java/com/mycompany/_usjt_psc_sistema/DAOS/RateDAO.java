@@ -45,7 +45,10 @@ public class RateDAO {
 
             // If there are no ratings, return null
             if (totalRatings == 0) {
-                return null;
+                // Create a dummy rate to avoid null pointer exception
+                Rate dummyRate = new Rate(0, 0, 0);
+                Rate[] dummyArray = { dummyRate };
+                return dummyArray;
             } else {
                 return ratings;
             }

@@ -4,15 +4,13 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
-import javax.swing.JOptionPane;
-
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.Rate;
+import com.mycompany._usjt_psc_sistema.managers.AdminBookManager;
 
 import helpers.BookNames;
-import helpers.GenreNames;
 
 /**
  *
@@ -46,7 +44,6 @@ public class AdminRateBook extends javax.swing.JFrame {
         ratingAmount = new javax.swing.JTextField();
         String[] bookNames = BookNames.getBookNames();
 
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -64,6 +61,11 @@ public class AdminRateBook extends javax.swing.JFrame {
         });
 
         rateConfirmButton1.setText("Cancelar");
+        rateConfirmButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rateConfirmButton1ActionPerformed(evt);
+            }
+        });
 
         ratingAmount.setBorder(javax.swing.BorderFactory.createTitledBorder("Nota (1 a 5)"));
 
@@ -140,6 +142,12 @@ public class AdminRateBook extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_rateConfirmButtonActionPerformed
+
+    private void rateConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rateConfirmButton1ActionPerformed
+        this.dispose();
+        AdminBookManager abm  = new AdminBookManager();
+        abm.setVisible(true);
+    }//GEN-LAST:event_rateConfirmButton1ActionPerformed
 
     /**
      * @param args the command line arguments
