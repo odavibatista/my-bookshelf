@@ -36,10 +36,11 @@ public class BookDAO {
             int contador = 0;
 
             while (rs.next()) {
+                int id = rs.getInt("id");
                 String title = rs.getString("title");
                 int genre = rs.getInt("genre_id");
                 String author = rs.getString("author");
-                books[contador++] = new Book(title, author, genre);
+                books[contador++] = new Book(id, title, author, genre);
             }
 
             return books;
