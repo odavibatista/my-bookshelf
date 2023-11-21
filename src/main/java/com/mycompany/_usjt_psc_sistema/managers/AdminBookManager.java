@@ -6,7 +6,6 @@ package com.mycompany._usjt_psc_sistema.managers;
 
 import javax.swing.JOptionPane;
 
-import com.mycompany._usjt_psc_sistema.AdminBookDelete;
 import com.mycompany._usjt_psc_sistema.BookEdit;
 import com.mycompany._usjt_psc_sistema.BookRegister;
 import com.mycompany._usjt_psc_sistema.GenreRegister;

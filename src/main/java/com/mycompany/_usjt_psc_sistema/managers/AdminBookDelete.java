@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany._usjt_psc_sistema;
+package com.mycompany._usjt_psc_sistema.managers;
 
 import javax.swing.JOptionPane;
 
@@ -33,6 +33,7 @@ public class AdminBookDelete extends javax.swing.JFrame {
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
         // Code">//GEN-BEGIN:initComponents
         private void initComponents() {
 
@@ -43,9 +44,8 @@ public class AdminBookDelete extends javax.swing.JFrame {
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-                jPanel1.setBorder(javax.swing.BorderFactory
-                                .createTitledBorder(javax.swing.BorderFactory
-                                                .createTitledBorder("MyBookshelf - Remover Livro")));
+                jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(
+                                javax.swing.BorderFactory.createTitledBorder("MyBookshelf - Remover Livro")));
 
                 idField.setBorder(javax.swing.BorderFactory.createTitledBorder("ID do Livro"));
 

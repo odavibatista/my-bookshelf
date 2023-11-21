@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany._usjt_psc_sistema.managers;
+package com.mycompany._usjt_psc_sistema;
 
+import com.mycompany._usjt_psc_sistema.managers.*;
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
@@ -16,12 +17,12 @@ import helpers.BookNames;
  *
  * @author 823212382
  */
-public class AdminRateBook extends javax.swing.JFrame {
+public class RateBook extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminRateBook
      */
-    public AdminRateBook() {
+    public RateBook() {
         super("Avaliar livro");
         initComponents();
         this.setLocationRelativeTo(null);
@@ -34,6 +35,8 @@ public class AdminRateBook extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -41,7 +44,7 @@ public class AdminRateBook extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         rateConfirmButton = new javax.swing.JButton();
-        rateConfirmButton1 = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
         ratingAmount = new javax.swing.JTextField();
         String[] bookNames = BookNames.getBookNames();
 
@@ -52,7 +55,8 @@ public class AdminRateBook extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Qual livro deseja avaliar?");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(bookNames));
+        jComboBox1.setModel(
+                new javax.swing.DefaultComboBoxModel<>(bookNames));
 
         rateConfirmButton.setText("Avaliar");
         rateConfirmButton.addActionListener(new java.awt.event.ActionListener() {
@@ -61,14 +65,14 @@ public class AdminRateBook extends javax.swing.JFrame {
             }
         });
 
-        rateConfirmButton1.setText("Cancelar");
-        rateConfirmButton1.addActionListener(new java.awt.event.ActionListener() {
+        cancelButton.setText("Cancelar");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rateConfirmButton1ActionPerformed(evt);
+                cancelButton(evt);
             }
         });
 
-        ratingAmount.setBorder(javax.swing.BorderFactory.createTitledBorder("Nota (1 a 5)"));
+        ratingAmount.setBorder(javax.swing.BorderFactory.createTitledBorder("Nota"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,7 +91,7 @@ public class AdminRateBook extends javax.swing.JFrame {
                                                 .addGap(118, 118, 118)
                                                 .addGroup(jPanel1Layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(rateConfirmButton1,
+                                                        .addComponent(cancelButton,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE, 103,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(rateConfirmButton,
@@ -112,7 +116,7 @@ public class AdminRateBook extends javax.swing.JFrame {
                                 .addComponent(rateConfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rateConfirmButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
+                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(11, Short.MAX_VALUE)));
 
@@ -152,10 +156,10 @@ public class AdminRateBook extends javax.swing.JFrame {
         }
     }// GEN-LAST:event_rateConfirmButtonActionPerformed
 
-    private void rateConfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rateConfirmButton1ActionPerformed
+    private void cancelButton(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rateConfirmButton1ActionPerformed
         this.dispose();
-        AdminBookManager abm = new AdminBookManager();
-        abm.setVisible(true);
+        BookManager bm = new BookManager();
+        bm.setVisible(true);
     }// GEN-LAST:event_rateConfirmButton1ActionPerformed
 
     /**
@@ -179,34 +183,35 @@ public class AdminRateBook extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminRateBook.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(RateBook.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminRateBook.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(RateBook.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminRateBook.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(RateBook.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminRateBook.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(RateBook.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         }
+        // </editor-fold>
         // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminRateBook().setVisible(true);
+                new RateBook().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelButton;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton rateConfirmButton;
-    private javax.swing.JButton rateConfirmButton1;
     private javax.swing.JTextField ratingAmount;
     // End of variables declaration//GEN-END:variables
 }
