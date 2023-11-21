@@ -195,9 +195,8 @@ public class BookDAO {
     }
 
     /* Find a book by its ID */
-    public Book findOne(Book book) throws Exception {
+    public Book findOne(int id) throws Exception {
         String sql = "SELECT * FROM books WHERE id = ?;";
-        int id = book.getId();
 
         try (Connection conn = ConnectionFactory.conectar();
                 PreparedStatement ps = conn.prepareStatement(sql)) {

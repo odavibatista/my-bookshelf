@@ -4,6 +4,10 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
+import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
+import com.mycompany._usjt_psc_sistema.models.Book;
+
 /**
  *
  * @author 823212382
@@ -26,6 +30,7 @@ public class AdminFindBook extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -36,7 +41,7 @@ public class AdminFindBook extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisar Livro"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("MyBookshelf - Pesquisar Livro"));
 
         searchButton.setText("Pesquisar");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,12 +57,7 @@ public class AdminFindBook extends javax.swing.JFrame {
             }
         });
 
-        bookIdInput.setBorder(javax.swing.BorderFactory.createTitledBorder("ID do Livro\n"));
-        bookIdInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookIdInputActionPerformed(evt);
-            }
-        });
+        bookIdInput.setBorder(javax.swing.BorderFactory.createTitledBorder("ID do Livro"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,11 +79,10 @@ public class AdminFindBook extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(bookIdInput, javax.swing.GroupLayout.PREFERRED_SIZE, 51,
+                                .addContainerGap(23, Short.MAX_VALUE)
+                                .addComponent(bookIdInput, javax.swing.GroupLayout.PREFERRED_SIZE, 73,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26,
-                                        Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -112,16 +111,28 @@ public class AdminFindBook extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_searchButtonActionPerformed
-        // TODO add your handling code here:
+        BookDAO bookDAO = new BookDAO();
+
+        try {
+            int id = Integer.parseInt(bookIdInput.getText());
+            GenreDAO gd = new GenreDAO();
+            Book book = bookDAO.findOne(id);
+            String genre = gd.findGenreName(id);
+            // Get a JOptionPane to show the book's informations
+            String message = "ID: " + id + "\nTítulo: " + book.getTitle() + "\nAutor: " + book.getAuthor()
+                    + "\nGênero: " + genre;
+            javax.swing.JOptionPane.showMessageDialog(null, message);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }// GEN-LAST:event_searchButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cancelButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        AdminBookManager abm = new AdminBookManager();
+        abm.setVisible(true);
     }// GEN-LAST:event_cancelButtonActionPerformed
-
-    private void bookIdInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookIdInputActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_bookIdInputActionPerformed
 
     /**
      * @param args the command line arguments

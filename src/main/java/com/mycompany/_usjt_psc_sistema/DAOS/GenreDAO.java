@@ -95,4 +95,24 @@ public class GenreDAO {
             e.printStackTrace();
         }
     }
+
+    /* Find a genre's name */
+    public static String findGenreName(int id) throws Exception {
+        String sql = "SELECT genre_name FROM genres WHERE id = ?";
+
+        try (
+                var conn = ConnectionFactory.conectar();
+
+                var ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString("genre_name");
+                } else {
+                    return null;
+                }
+            }
+        }
+    }
 }
