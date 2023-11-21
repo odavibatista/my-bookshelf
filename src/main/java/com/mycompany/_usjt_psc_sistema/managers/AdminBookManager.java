@@ -6,7 +6,7 @@ package com.mycompany._usjt_psc_sistema.managers;
 
 import javax.swing.JOptionPane;
 
-import com.mycompany._usjt_psc_sistema.BookDelete;
+import com.mycompany._usjt_psc_sistema.AdminBookDelete;
 import com.mycompany._usjt_psc_sistema.BookEdit;
 import com.mycompany._usjt_psc_sistema.BookRegister;
 import com.mycompany._usjt_psc_sistema.GenreRegister;
@@ -228,7 +228,7 @@ public class AdminBookManager extends javax.swing.JFrame {
     }// GEN-LAST:event_adminFinOneBookButtonActionPerformed
 
     private void adminDeleteBookButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_adminDeleteBookButtonActionPerformed
-        BookDelete bd = new BookDelete();
+        AdminBookDelete bd = new AdminBookDelete();
         this.dispose();
         bd.setVisible(true);
     }// GEN-LAST:event_adminDeleteBookButtonActionPerformed

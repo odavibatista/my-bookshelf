@@ -7,17 +7,18 @@ package com.mycompany._usjt_psc_sistema;
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
+import com.mycompany._usjt_psc_sistema.managers.AdminBookManager;
 
 /**
  *
  * @author Usuario
  */
-public class BookDelete extends javax.swing.JFrame {
+public class AdminBookDelete extends javax.swing.JFrame {
 
         /**
          * Creates new form BookDelete
          */
-        public BookDelete() {
+        public AdminBookDelete() {
                 super("MyBookshelf - Remover Livro");
                 initComponents();
                 this.setLocationRelativeTo(null);
@@ -30,6 +31,8 @@ public class BookDelete extends javax.swing.JFrame {
          */
         @SuppressWarnings("unchecked")
         // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
         // Code">//GEN-BEGIN:initComponents
         private void initComponents() {
 
@@ -41,20 +44,10 @@ public class BookDelete extends javax.swing.JFrame {
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
                 jPanel1.setBorder(javax.swing.BorderFactory
-                                .createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Remover Livro")));
+                                .createTitledBorder(javax.swing.BorderFactory
+                                                .createTitledBorder("MyBookshelf - Remover Livro")));
 
                 idField.setBorder(javax.swing.BorderFactory.createTitledBorder("ID do Livro"));
-
-                try {
-                        BookDAO dao = new BookDAO();
-                        int maxId = dao.getBooks().length;
-                        idField.setText("1");
-                        idField.setText(String.valueOf(maxId));
-                } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null,
-                                        "Parece que tivemos um problema. Tente novamente mais tarde.");
-                        e.printStackTrace();
-                }
 
                 deleteButton.setText("Deletar");
                 deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +57,11 @@ public class BookDelete extends javax.swing.JFrame {
                 });
 
                 returnButton.setText("Voltar");
+                returnButton.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                returnButtonActionPerformed(evt);
+                        }
+                });
 
                 javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
                 jPanel1.setLayout(jPanel1Layout);
@@ -71,10 +69,9 @@ public class BookDelete extends javax.swing.JFrame {
                                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addGap(88, 88, 88)
-                                                                .addGroup(jPanel1Layout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                false)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                false)
                                                                                 .addComponent(idField)
                                                                                 .addComponent(deleteButton,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -82,8 +79,7 @@ public class BookDelete extends javax.swing.JFrame {
                                                                                                 Short.MAX_VALUE)
                                                                                 .addComponent(returnButton,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                152,
-                                                                                                Short.MAX_VALUE))
+                                                                                                152, Short.MAX_VALUE))
                                                                 .addContainerGap(112, Short.MAX_VALUE)));
                 jPanel1Layout.setVerticalGroup(
                                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,6 +126,11 @@ public class BookDelete extends javax.swing.JFrame {
 
                 pack();
         }// </editor-fold>//GEN-END:initComponents
+
+        private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_returnButtonActionPerformed
+                this.dispose();
+                new AdminBookManager().setVisible(true);
+        }// GEN-LAST:event_returnButtonActionPerformed
 
         private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteButtonActionPerformed
                 int getterId = Integer.parseInt(idField.getText());
@@ -184,28 +185,29 @@ public class BookDelete extends javax.swing.JFrame {
                                 }
                         }
                 } catch (ClassNotFoundException ex) {
-                        java.util.logging.Logger.getLogger(BookDelete.class.getName()).log(
+                        java.util.logging.Logger.getLogger(AdminBookDelete.class.getName()).log(
                                         java.util.logging.Level.SEVERE, null,
                                         ex);
                 } catch (InstantiationException ex) {
-                        java.util.logging.Logger.getLogger(BookDelete.class.getName()).log(
+                        java.util.logging.Logger.getLogger(AdminBookDelete.class.getName()).log(
                                         java.util.logging.Level.SEVERE, null,
                                         ex);
                 } catch (IllegalAccessException ex) {
-                        java.util.logging.Logger.getLogger(BookDelete.class.getName()).log(
+                        java.util.logging.Logger.getLogger(AdminBookDelete.class.getName()).log(
                                         java.util.logging.Level.SEVERE, null,
                                         ex);
                 } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                        java.util.logging.Logger.getLogger(BookDelete.class.getName()).log(
+                        java.util.logging.Logger.getLogger(AdminBookDelete.class.getName()).log(
                                         java.util.logging.Level.SEVERE, null,
                                         ex);
                 }
+                // </editor-fold>
                 // </editor-fold>
 
                 /* Create and display the form */
                 java.awt.EventQueue.invokeLater(new Runnable() {
                         public void run() {
-                                new BookDelete().setVisible(true);
+                                new AdminBookDelete().setVisible(true);
                         }
                 });
         }
