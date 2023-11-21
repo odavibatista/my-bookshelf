@@ -33,8 +33,8 @@ CREATE TABLE books(
 -- Ratings table creation
 CREATE TABLE ratings(
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    u_id INTEGER NOT NULL,
-    b_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    book_id INTEGER NOT NULL,
     rating INTEGER NOT NULL,
     FOREIGN KEY (u_id) REFERENCES users (id),
     FOREIGN KEY (b_id) REFERENCES books (id)

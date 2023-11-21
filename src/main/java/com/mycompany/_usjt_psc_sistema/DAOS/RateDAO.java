@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.ConnectionFactory;
+import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.Rate;
 
 /**
@@ -18,7 +19,7 @@ import com.mycompany._usjt_psc_sistema.models.Rate;
  */
 public class RateDAO {
     /* Find all Ratings of a book in the database */
-    public int[] getRatings(int id) throws Exception {
+    public Rate[] getRatings(int bookId) throws Exception {
         String sql = "SELECT * FROM ratings WHERE book_id = ?";
 
         try (
@@ -30,20 +31,20 @@ public class RateDAO {
                         ResultSet.CONCUR_READ_ONLY);
 
                 ResultSet rs = ps.executeQuery()) {
-            ps.setInt(1, id);
-            int totalRatings = rs.last() ? rs.getRow() : 0;
-            int[] ratings = new int[totalRatings];
+            int totalBooks = rs.last() ? rs.getRow() : 0;
+            Rate[] ratings = new Rate[totalBooks];
             rs.beforeFirst();
             int contador = 0;
 
-            ratings[0] = 0;
             while (rs.next()) {
-                int rate = rs.getInt("rating");
-                ratings[contador] = rate;
+                int id = rs.getInt("id");
+                int user_id = rs.getInt("user_id");
+                int book_id = rs.getInt("genre_id");
+                int rating = rs.getInt("author");
+                ratings[contador++] = new Rate(id, user_id, book_id, rating);
             }
-            
+
             return ratings;
-            
         }
     }
 
