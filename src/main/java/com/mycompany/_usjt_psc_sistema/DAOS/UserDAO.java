@@ -142,7 +142,11 @@ public class UserDAO {
             ps.setString(1, email);
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
-                return rs.next();
+                boolean next = rs.next();
+                if (next) {
+                    user.setId(rs.getInt("id"));
+                }
+                return next;
             }
         }
     }

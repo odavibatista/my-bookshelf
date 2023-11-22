@@ -121,7 +121,7 @@ public class LoginScreenWIP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cancelLoginButtonActionPerformed
-        this.dispose(); // TODO add your handling code here:
+        this.dispose();
     }// GEN-LAST:event_cancelLoginButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_loginButtonActionPerformed
@@ -137,6 +137,7 @@ public class LoginScreenWIP extends javax.swing.JFrame {
             if (dao.exists(user)) {
                 // If that's the case, welcome the user
                 JOptionPane.showMessageDialog(rootPane, "Bem vindo!");
+                User.user = user;
                 dispose();
                 if (dao.isSuperUser(user)) {
                     AdminDashboardScreen ds = new AdminDashboardScreen();

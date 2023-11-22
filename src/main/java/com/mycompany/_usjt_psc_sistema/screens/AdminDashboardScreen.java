@@ -5,6 +5,10 @@
 package com.mycompany._usjt_psc_sistema.screens;
 
 import com.mycompany._usjt_psc_sistema.managers.AdminUserManager;
+import com.mycompany._usjt_psc_sistema.models.User;
+
+import javax.swing.JOptionPane;
+
 import com.mycompany._usjt_psc_sistema.managers.AdminBookManager;
 
 /**
