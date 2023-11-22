@@ -4,10 +4,7 @@
  */
 package testing_package;
 
-import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
-import com.mycompany._usjt_psc_sistema.models.Book;
-import com.mycompany._usjt_psc_sistema.models.Genre;
 import com.mycompany._usjt_psc_sistema.models.Rate;
 
 /**
