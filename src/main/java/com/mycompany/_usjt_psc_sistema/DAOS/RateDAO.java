@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.ConnectionFactory;
-import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.Rate;
 
 /**
@@ -28,19 +27,19 @@ public class RateDAO {
                 var ps = conn.prepareStatement(
                         sql,
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_READ_ONLY);
-
-                ResultSet rs = ps.executeQuery()) {
-            int totalBooks = rs.last() ? rs.getRow() : 0;
-            Rate[] ratings = new Rate[totalBooks];
+                        ResultSet.CONCUR_READ_ONLY);) {
+            ps.setInt(1, bookId);
+            ResultSet rs = ps.executeQuery();
+            int totalRatings = rs.last() ? rs.getRow() : 0;
+            Rate[] ratings = new Rate[totalRatings];
             rs.beforeFirst();
             int contador = 0;
 
             while (rs.next()) {
                 int id = rs.getInt("id");
                 int user_id = rs.getInt("user_id");
-                int book_id = rs.getInt("genre_id");
-                int rating = rs.getInt("author");
+                int book_id = rs.getInt("book_id");
+                int rating = rs.getInt("rating");
                 ratings[contador++] = new Rate(id, user_id, book_id, rating);
             }
 
@@ -56,12 +55,11 @@ public class RateDAO {
                 var conn = ConnectionFactory.conectar();
 
                 var ps = conn.prepareStatement(
-                        sql,
-                        ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_READ_ONLY);
+                        sql);
 
-                ResultSet rs = ps.executeQuery()) {
+        ) {
             ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
             int totalRatings = rs.last() ? rs.getRow() : 0;
             int sumOfRatings = 0;
             if (totalRatings > 0) {
@@ -69,6 +67,14 @@ public class RateDAO {
             }
             return sumOfRatings;
         }
+
+        // Why is this method giving an error java.sql.SQLException: No value specified
+        // for parameter 1?
+        // Explain below
+        // Answer: The parameter 1 is the book_id, which is not being passed to the
+        // method
+        // Fix the ps.setInt(1, id); line and give me the answer below
+
     }
 
     /* Counting the ratings of a book */

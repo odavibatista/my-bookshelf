@@ -36,12 +36,9 @@ CREATE TABLE ratings(
     user_id INTEGER NOT NULL,
     book_id INTEGER NOT NULL,
     rating INTEGER NOT NULL,
-    FOREIGN KEY (u_id) REFERENCES users (id),
-    FOREIGN KEY (b_id) REFERENCES books (id)
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (book_id) REFERENCES books (id)
 );
-
-drop table ratings;
-
 -- Genres registering
 INSERT INTO genres (genre_name) VALUES
     ('Romance'),
