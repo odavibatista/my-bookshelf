@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import javax.swing.JOptionPane;
+
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
@@ -175,7 +177,7 @@ public class AdminRateBook extends javax.swing.JFrame {
                         Rate newRate = new Rate(User.user.getId(), bookId, rate);
                         rateDAO.register(newRate);
                 } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        JOptionPane.showMessageDialog(null, "Erro ao avaliar livro");
                 }
         }// GEN-LAST:event_rateConfirmButtonActionPerformed
 

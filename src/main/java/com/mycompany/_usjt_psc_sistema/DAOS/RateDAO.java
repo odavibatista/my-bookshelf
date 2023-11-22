@@ -121,9 +121,9 @@ public class RateDAO {
             int rowsAffected = ps.executeUpdate();
 
             if (rowsAffected > 0) {
-                System.out.println("Avaliação registrada com sucesso!");
+                JOptionPane.showMessageDialog(null, "Avaliação cadastrada com sucesso!");
             } else {
-                System.out.println("Erro ao cadastrar avaliação");
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar a avaliação. Tente novamente.");
             }
 
             ps.close();
