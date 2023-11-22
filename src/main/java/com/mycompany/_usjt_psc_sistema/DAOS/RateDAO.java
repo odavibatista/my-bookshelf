@@ -55,9 +55,9 @@ public class RateDAO {
                 var conn = ConnectionFactory.conectar();
 
                 var ps = conn.prepareStatement(
-                        sql);
-
-        ) {
+                        sql,
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_READ_ONLY);) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             int totalRatings = rs.last() ? rs.getRow() : 0;
@@ -89,8 +89,9 @@ public class RateDAO {
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_READ_ONLY);
 
-                ResultSet rs = ps.executeQuery()) {
+        ) {
             ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
             // Get the number of ratings, even if there's only one
             int totalRatings = rs.last() ? rs.getRow() : 0;
             return totalRatings;

@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.BookEdit;
@@ -12,6 +14,7 @@ import com.mycompany._usjt_psc_sistema.GenreRegister;
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
+import com.mycompany._usjt_psc_sistema.models.ExtendedBook;
 import com.mycompany._usjt_psc_sistema.models.Rate;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
@@ -237,22 +240,26 @@ public class AdminBookManager extends javax.swing.JFrame {
         RateDAO rates = new RateDAO();
 
         String message = "";
-        try {
-            for (Book book : books.getBooks()) {
-                int bookId = book.getId();
-                String bookTitle = book.getTitle();
-                String bookAuthor = book.getAuthor();
-                int bookGenre = book.getGenre();
-                int ratins = rates.countRatings(bookId);
-                // Get all the ratings for the book
-                // Get the sum of the ratings
-                // Get the average of the ratings
 
-                message += "ID: " + bookId + "\n";
-                message += "Título: " + bookTitle + "\n";
-                message += "Autor: " + bookAuthor + "\n";
-                message += "Gênero: " + bookGenre + "\n";
-                message += "Avaliações: " + ratins + "\n";
+        try {
+            Book[] foundBooks = books.getBooks();
+            ExtendedBook[] ratedBooks = new ExtendedBook[foundBooks.length];
+
+            for (Book book : foundBooks) {
+                int bookId = book.getId();
+                int ratings = rates.countRatings(bookId);
+                int sumOfRatings = rates.getSumOfRatings(bookId);
+
+                ExtendedBook extendedBook = new ExtendedBook(book, ratings, sumOfRatings);
+                ratedBooks[bookId - 1] = extendedBook;
+            }
+            ExtendedBook[] sortedBooks = ExtendedBook.sort(ratedBooks);
+            for (ExtendedBook eBook : sortedBooks) {
+                message += "ID: " + eBook.getId() + "\n";
+                message += "Título: " + eBook.getTitle() + "\n";
+                message += "Autor: " + eBook.getAuthor() + "\n";
+                message += "Gênero: " + eBook.getGenre() + "\n";
+                message += "Nota Média: " + eBook.getRateAverage() + "\n";
             }
             JOptionPane.showMessageDialog(null, message);
         } catch (Exception e) {

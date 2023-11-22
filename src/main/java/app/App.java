@@ -17,7 +17,7 @@ public class App extends javax.swing.JFrame {
      * Creates new form App
      */
     public App() {
-        super("MyBookshelf");
+        super("MyBookshelf - Boas Vindas!");
         initComponents();
         setLocationRelativeTo(null);
 

@@ -13,7 +13,7 @@ public class ExtendedBook extends Book {
     private int rateTotal;
     private double rateAverage;
 
-    public ExtendedBook (Book book, int rateAmount, int rateTotal) {
+    public ExtendedBook(Book book, int rateAmount, int rateTotal) {
         super(book.getId(), book.getTitle(), book.getAuthor(), book.getGenre());
         this.rateAmount = rateAmount;
         this.rateTotal = rateTotal;
@@ -33,7 +33,6 @@ public class ExtendedBook extends Book {
         return rateAverage;
     }
 
-
     /* Setters */
     public void setRateAmount(int rateAmount) {
         this.rateAmount = rateAmount;
@@ -45,5 +44,19 @@ public class ExtendedBook extends Book {
 
     public void setRateAverage(double rateAverage) {
         this.rateAverage = rateAverage;
+    }
+
+    /* Sorting method */
+    public static ExtendedBook[] sort(ExtendedBook[] books) {
+        for (int i = 0; i < books.length; i++) {
+            for (int j = 0; j < books.length - 1; j++) {
+                if (books[j].getRateAverage() < books[j + 1].getRateAverage()) {
+                    ExtendedBook temp = books[j];
+                    books[j] = books[j + 1];
+                    books[j + 1] = temp;
+                }
+            }
+        }
+        return books;
     }
 }
