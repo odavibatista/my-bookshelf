@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import java.awt.Toolkit;
+
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
@@ -26,6 +28,7 @@ public class AdminRateBook extends javax.swing.JFrame {
          */
         public AdminRateBook() {
                 super("Avaliar livro");
+                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
                 initComponents();
                 this.setLocationRelativeTo(null);
         }

@@ -4,6 +4,8 @@
  */
 package testing_package;
 
+import java.awt.Toolkit;
+
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
 import com.mycompany._usjt_psc_sistema.models.Rate;
 
@@ -18,6 +20,7 @@ public class GetRatings extends javax.swing.JFrame {
      */
     public GetRatings() {
         super("Pegar Avaliações");
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

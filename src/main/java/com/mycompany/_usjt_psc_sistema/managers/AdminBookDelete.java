@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import java.awt.Toolkit;
+
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
@@ -20,6 +22,7 @@ public class AdminBookDelete extends javax.swing.JFrame {
          */
         public AdminBookDelete() {
                 super("MyBookshelf - Remover Livro");
+                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
                 initComponents();
                 this.setLocationRelativeTo(null);
         }

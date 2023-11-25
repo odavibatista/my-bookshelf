@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import java.awt.Toolkit;
+
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
@@ -19,6 +21,7 @@ public class AdminFindBook extends javax.swing.JFrame {
      */
     public AdminFindBook() {
         super("MyBookshelf - Pesquisar Livro");
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

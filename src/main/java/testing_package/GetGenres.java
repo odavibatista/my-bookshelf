@@ -4,6 +4,8 @@
  */
 package testing_package;
 
+import java.awt.Toolkit;
+
 import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
 import com.mycompany._usjt_psc_sistema.models.Genre;
 
@@ -18,6 +20,7 @@ public class GetGenres extends javax.swing.JFrame {
      */
     public GetGenres() {
         super("MyBookshelf - Pegar Avaliações");
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

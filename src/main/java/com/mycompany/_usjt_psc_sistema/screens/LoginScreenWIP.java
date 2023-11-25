@@ -6,6 +6,9 @@ package com.mycompany._usjt_psc_sistema.screens;
 
 import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
 import com.mycompany._usjt_psc_sistema.models.User;
+
+import java.awt.Toolkit;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +22,7 @@ public class LoginScreenWIP extends javax.swing.JFrame {
      */
     public LoginScreenWIP() {
         super("MyBookshelf - Login");
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

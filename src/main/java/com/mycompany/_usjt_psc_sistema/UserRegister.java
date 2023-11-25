@@ -10,6 +10,8 @@ import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
 import helpers.GenreNames;
 
+import java.awt.Toolkit;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +25,7 @@ public class UserRegister extends javax.swing.JFrame {
          */
         public UserRegister() {
                 super("MyBookshelf - Registro de Usuários");
+                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
                 initComponents();
                 setLocationRelativeTo(null);
         }

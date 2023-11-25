@@ -4,6 +4,7 @@
  */
 package com.mycompany._usjt_psc_sistema.managers;
 
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -15,7 +16,6 @@ import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.ExtendedBook;
-import com.mycompany._usjt_psc_sistema.models.Rate;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
 /**
@@ -29,6 +29,7 @@ public class AdminBookManager extends javax.swing.JFrame {
      */
     public AdminBookManager() {
         super("MyBookshelf - Administração de Livros");
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

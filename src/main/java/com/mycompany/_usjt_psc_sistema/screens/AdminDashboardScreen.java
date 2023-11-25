@@ -5,9 +5,8 @@
 package com.mycompany._usjt_psc_sistema.screens;
 
 import com.mycompany._usjt_psc_sistema.managers.AdminUserManager;
-import com.mycompany._usjt_psc_sistema.models.User;
 
-import javax.swing.JOptionPane;
+import java.awt.Toolkit;
 
 import com.mycompany._usjt_psc_sistema.managers.AdminBookManager;
 
@@ -22,6 +21,7 @@ public class AdminDashboardScreen extends javax.swing.JFrame {
      */
     public AdminDashboardScreen() {
         super("MyBookshelf - Painel Administrativo");
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

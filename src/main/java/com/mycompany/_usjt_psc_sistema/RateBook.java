@@ -5,6 +5,9 @@
 package com.mycompany._usjt_psc_sistema;
 
 import com.mycompany._usjt_psc_sistema.managers.*;
+
+import java.awt.Toolkit;
+
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
@@ -24,6 +27,7 @@ public class RateBook extends javax.swing.JFrame {
          */
         public RateBook() {
                 super("Avaliar livro");
+                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
                 initComponents();
                 this.setLocationRelativeTo(null);
         }
