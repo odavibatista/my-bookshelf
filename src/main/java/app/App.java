@@ -6,7 +6,7 @@ package app;
 
 import java.awt.Toolkit;
 
-import com.mycompany._usjt_psc_sistema.screens.LoginScreenWIP;
+import com.mycompany._usjt_psc_sistema.screens.LoginScreen;
 import com.mycompany._usjt_psc_sistema.screens.RegisterScreen;
 
 /**
@@ -136,7 +136,7 @@ public class App extends javax.swing.JFrame {
     }// GEN-LAST:event_registerRedirectButtonActionPerformed
 
     private void loginRedirectButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_loginRedirectButtonActionPerformed
-        LoginScreenWIP ls = new LoginScreenWIP();
+        LoginScreen ls = new LoginScreen();
         this.dispose();
         ls.setVisible(true);
     }// GEN-LAST:event_loginRedirectButtonActionPerformed

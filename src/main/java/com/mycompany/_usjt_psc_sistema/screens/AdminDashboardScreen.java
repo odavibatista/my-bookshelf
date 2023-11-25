@@ -130,7 +130,7 @@ public class AdminDashboardScreen extends javax.swing.JFrame {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_returnButtonActionPerformed
         this.dispose();
-        LoginScreenWIP ls = new LoginScreenWIP();
+        LoginScreen ls = new LoginScreen();
         ls.setVisible(true);
     }// GEN-LAST:event_returnButtonActionPerformed
 

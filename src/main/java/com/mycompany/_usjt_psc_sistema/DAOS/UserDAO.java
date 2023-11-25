@@ -196,8 +196,10 @@ public class UserDAO {
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getBoolean("super_user");
+                    System.out.println("Retornou true");
+                    return true;
                 } else {
+                    System.out.println("Retornou false");
                     return false;
                 }
             }
