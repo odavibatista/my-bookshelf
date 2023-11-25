@@ -6,14 +6,8 @@ package com.mycompany._usjt_psc_sistema.managers;
 
 import java.awt.Toolkit;
 
-import javax.swing.JOptionPane;
-
 import com.mycompany._usjt_psc_sistema.BookRegister;
 import com.mycompany._usjt_psc_sistema.RateBook;
-import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
-import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
-import com.mycompany._usjt_psc_sistema.models.Book;
-import com.mycompany._usjt_psc_sistema.models.ExtendedBook;
 import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
 
 import helpers.BookFinder;

@@ -9,7 +9,6 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
-import com.mycompany._usjt_psc_sistema.managers.AdminBookManager;
 
 /**
  *

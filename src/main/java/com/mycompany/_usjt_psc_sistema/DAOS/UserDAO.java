@@ -117,6 +117,39 @@ public class UserDAO {
 
     }
 
+    /* Change the password */
+    public void changePw(String password, int id) throws Exception {
+        String sql = "UPDATE users SET user_password = ? WHERE id = ?;";
+
+        try (
+                var connection = ConnectionFactory.conectar();
+                var ps = connection.prepareStatement(sql);) {
+            ps.setString(1, password);
+            ps.setInt(2, id);
+            ps.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao editar o usuário. Tente novamente.");
+            e.printStackTrace();
+        }
+    }
+
+    /* Change the user's favorite genres */
+    public void changeGenres(int id, int genre1, int genre2) throws Exception {
+        String sql = "UPDATE users SET first_favorite = ?, second_favorite = ? WHERE id = ?;";
+
+        try (
+                var connection = ConnectionFactory.conectar();
+                var ps = connection.prepareStatement(sql);) {
+            ps.setInt(1, genre1);
+            ps.setInt(2, genre2);
+            ps.setInt(3, id);
+            ps.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao editar os gêneros. Tente novamente.");
+            e.printStackTrace();
+        }
+    }
+
     /* Delete a user from the database */
     public void delete(int codigo) throws Exception {
         String sql = "DELETE FROM users WHERE id = ?;";

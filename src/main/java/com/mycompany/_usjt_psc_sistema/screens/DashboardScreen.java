@@ -7,6 +7,7 @@ package com.mycompany._usjt_psc_sistema.screens;
 import java.awt.Toolkit;
 
 import com.mycompany._usjt_psc_sistema.managers.BookManager;
+import com.mycompany._usjt_psc_sistema.managers.UserManager;
 
 import app.App;
 
@@ -34,13 +35,15 @@ public class DashboardScreen extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         booksMenuButton = new javax.swing.JButton();
-        personalButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
+        userMenuButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,17 +56,17 @@ public class DashboardScreen extends javax.swing.JFrame {
             }
         });
 
-        personalButton.setText("Meus dados");
-        personalButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                personalButtonActionPerformed(evt);
-            }
-        });
-
-        returnButton.setText("Voltar");
+        returnButton.setText("Sair");
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
+            }
+        });
+
+        userMenuButton.setText("Menu do Usuário");
+        userMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userMenuButtonActionPerformed(evt);
             }
         });
 
@@ -71,30 +74,29 @@ public class DashboardScreen extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addGroup(jPanel1Layout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(personalButton, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(booksMenuButton, javax.swing.GroupLayout.DEFAULT_SIZE, 254,
-                                                Short.MAX_VALUE))
-                                .addContainerGap(51, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(userMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 254,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(booksMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 254,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(51, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
+                                .addGap(45, 45, 45)
                                 .addComponent(booksMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(personalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42,
+                                .addGap(18, 18, 18)
+                                .addComponent(userMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
+                                .addGap(16, 16, 16)
                                 .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
@@ -119,6 +121,12 @@ public class DashboardScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void userMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_userMenuButtonActionPerformed
+        UserManager um = new UserManager();
+        this.dispose();
+        um.setVisible(true);
+    }// GEN-LAST:event_userMenuButtonActionPerformed
+
     private void booksMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_booksMenuButtonActionPerformed
         BookManager bm = new BookManager();
         this.dispose();
@@ -130,10 +138,6 @@ public class DashboardScreen extends javax.swing.JFrame {
         App app = new App();
         app.setVisible(true);
     }// GEN-LAST:event_returnButtonActionPerformed
-
-    private void personalButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_personalButtonActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_personalButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +190,7 @@ public class DashboardScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton booksMenuButton;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton personalButton;
     private javax.swing.JButton returnButton;
+    private javax.swing.JButton userMenuButton;
     // End of variables declaration//GEN-END:variables
 }

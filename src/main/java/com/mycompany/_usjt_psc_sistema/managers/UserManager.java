@@ -6,6 +6,9 @@ package com.mycompany._usjt_psc_sistema.managers;
 
 import java.awt.Toolkit;
 
+import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
+import com.mycompany._usjt_psc_sistema.models.User;
+import com.mycompany._usjt_psc_sistema.screens.ChangeGender;
 import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
 
 /**
@@ -117,11 +120,20 @@ public class UserManager extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void changeFavoriteGendersButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_changeFavoriteGendersButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        ChangeGender cg = new ChangeGender();
+        cg.setVisible(true);
     }// GEN-LAST:event_changeFavoriteGendersButtonActionPerformed
 
     private void changePasswordGendersButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_changePasswordGendersButtonActionPerformed
-        // TODO add your handling code here:
+        String newPassword = javax.swing.JOptionPane.showInputDialog("Digite a nova senha:");
+        UserDAO userDAO = new UserDAO();
+        try {
+            userDAO.changePw(newPassword, User.user.getId());
+            javax.swing.JOptionPane.showMessageDialog(null, "Senha alterada com sucesso!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }// GEN-LAST:event_changePasswordGendersButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_returnButtonActionPerformed
