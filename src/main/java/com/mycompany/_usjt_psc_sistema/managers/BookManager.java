@@ -19,7 +19,7 @@ public class BookManager extends javax.swing.JFrame {
      */
     public BookManager() {
         super("MyBookshelf - Painel de Livros");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

@@ -22,7 +22,7 @@ public class AdminBookDelete extends javax.swing.JFrame {
          */
         public AdminBookDelete() {
                 super("MyBookshelf - Remover Livro");
-                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
                 initComponents();
                 this.setLocationRelativeTo(null);
         }

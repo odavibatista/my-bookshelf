@@ -20,7 +20,7 @@ public class App extends javax.swing.JFrame {
      */
     public App() {
         super("MyBookshelf - Boas Vindas!");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
         initComponents();
         setLocationRelativeTo(null);
 

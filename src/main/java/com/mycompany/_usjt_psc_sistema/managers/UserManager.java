@@ -17,7 +17,7 @@ public class UserManager extends javax.swing.JFrame {
      */
     public UserManager() {
         super("MyBookshelf - Painel do Usuário");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

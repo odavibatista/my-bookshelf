@@ -20,7 +20,7 @@ public class RegisterScreen extends javax.swing.JFrame {
          */
         public RegisterScreen() {
                 super("MyBookshelf - Registro");
-                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
                 initComponents();
                 this.setLocationRelativeTo(null);
 

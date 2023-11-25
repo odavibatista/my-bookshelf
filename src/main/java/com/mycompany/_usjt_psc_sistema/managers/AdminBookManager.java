@@ -29,7 +29,7 @@ public class AdminBookManager extends javax.swing.JFrame {
      */
     public AdminBookManager() {
         super("MyBookshelf - Administração de Livros");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

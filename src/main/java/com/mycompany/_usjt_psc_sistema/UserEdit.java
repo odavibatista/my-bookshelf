@@ -23,7 +23,7 @@ public class UserEdit extends javax.swing.JFrame {
          */
         public UserEdit() {
                 super("MyBookshelf - Editar Informações");
-                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
                 initComponents();
                 this.setLocationRelativeTo(null);
         }

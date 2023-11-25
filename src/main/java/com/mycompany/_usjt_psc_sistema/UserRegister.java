@@ -25,7 +25,7 @@ public class UserRegister extends javax.swing.JFrame {
          */
         public UserRegister() {
                 super("MyBookshelf - Registro de Usuários");
-                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
                 initComponents();
                 setLocationRelativeTo(null);
         }

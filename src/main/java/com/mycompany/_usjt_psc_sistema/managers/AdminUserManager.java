@@ -20,7 +20,7 @@ public class AdminUserManager extends javax.swing.JFrame {
      */
     public AdminUserManager() {
         super("MyBookshelf - Registro de Usuários");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }

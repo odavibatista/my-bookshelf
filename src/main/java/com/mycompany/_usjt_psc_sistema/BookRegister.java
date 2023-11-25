@@ -28,7 +28,7 @@ public class BookRegister extends javax.swing.JFrame {
          */
         public BookRegister() {
                 super("MyBookshelf - Registro de livros");
-                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+                setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
                 initComponents();
                 setLocationRelativeTo(null);
         }

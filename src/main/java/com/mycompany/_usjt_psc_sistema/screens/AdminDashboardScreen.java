@@ -21,7 +21,7 @@ public class AdminDashboardScreen extends javax.swing.JFrame {
      */
     public AdminDashboardScreen() {
         super("MyBookshelf - Painel Administrativo");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/duke.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
         initComponents();
         this.setLocationRelativeTo(null);
     }
