@@ -6,6 +6,8 @@ package com.mycompany._usjt_psc_sistema.managers;
 
 import java.awt.Toolkit;
 
+import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
+
 /**
  *
  * @author 823212382
@@ -123,7 +125,9 @@ public class UserManager extends javax.swing.JFrame {
     }// GEN-LAST:event_changePasswordGendersButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        DashboardScreen ds = new DashboardScreen();
+        ds.setVisible(true);
     }// GEN-LAST:event_returnButtonActionPerformed
 
     /**
