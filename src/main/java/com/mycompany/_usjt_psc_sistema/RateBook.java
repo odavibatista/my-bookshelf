@@ -182,8 +182,8 @@ public class RateBook extends javax.swing.JFrame {
                         int bookId = book.getId();
                         int rate = Integer.parseInt(ratingAmount.getText());
 
-                        if (rate < 1 || rate > 5) {
-                                JOptionPane.showMessageDialog(null, "A nota deve ser entre 1 e 5");
+                        if (rate < 0 || rate > 10) {
+                                JOptionPane.showMessageDialog(null, "A nota deve ser entre 1 e 10!");
                                 return;
                         } else {
                                 Rate newRate = new Rate(User.user.getId(), bookId, rate);

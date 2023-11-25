@@ -235,4 +235,20 @@ public class BookDAO {
             }
         }
     }
+
+    /* Get the id of the last book on the database */
+    public int getLastId() throws Exception {
+        String sql = "SELECT id FROM books ORDER BY id DESC LIMIT 1;";
+
+        try (Connection conn = ConnectionFactory.conectar();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("id");
+                } else {
+                    return 0;
+                }
+            }
+        }
+    }
 }
