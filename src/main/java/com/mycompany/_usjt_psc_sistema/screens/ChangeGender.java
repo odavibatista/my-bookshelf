@@ -4,6 +4,8 @@
  */
 package com.mycompany._usjt_psc_sistema.screens;
 
+import java.awt.Toolkit;
+
 import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
 import com.mycompany._usjt_psc_sistema.managers.UserManager;
 import com.mycompany._usjt_psc_sistema.models.User;
@@ -20,7 +22,10 @@ public class ChangeGender extends javax.swing.JFrame {
      * Creates new form ChangeGender
      */
     public ChangeGender() {
+        super("MyBookshelf - Troca de Gênero Literário");
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/assets/icon.png"));
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

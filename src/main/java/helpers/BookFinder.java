@@ -7,6 +7,7 @@ package helpers;
 import javax.swing.JOptionPane;
 
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
+import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.ExtendedBook;
@@ -19,6 +20,7 @@ public class BookFinder {
     public void findAll() {
         BookDAO books = new BookDAO();
         RateDAO rates = new RateDAO();
+        GenreDAO gd = new GenreDAO();
 
         String message = "";
 
@@ -44,7 +46,7 @@ public class BookFinder {
                 message += "ID: " + eBook.getId() + "\n";
                 message += "Título: " + eBook.getTitle() + "\n";
                 message += "Autor: " + eBook.getAuthor() + "\n";
-                message += "Gênero: " + eBook.getGenre() + "\n";
+                message += "Gênero: " + gd.findGenreName(eBook.getGenre()) + "\n";
                 message += "Nota Média: " + eBook.getRateAverage() + "\n\n";
             }
         } catch (Exception e) {
