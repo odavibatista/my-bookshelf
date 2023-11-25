@@ -5,7 +5,6 @@
 package com.mycompany._usjt_psc_sistema.managers;
 
 import java.awt.Toolkit;
-import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -256,13 +255,17 @@ public class AdminBookManager extends javax.swing.JFrame {
             }
             ExtendedBook[] sortedBooks = ExtendedBook.sort(ratedBooks);
             for (ExtendedBook eBook : sortedBooks) {
+                /* Page splitter */
+                if (message.length() > 600) {
+                    JOptionPane.showMessageDialog(null, message);
+                    message = "";
+                }
                 message += "ID: " + eBook.getId() + "\n";
                 message += "Título: " + eBook.getTitle() + "\n";
                 message += "Autor: " + eBook.getAuthor() + "\n";
                 message += "Gênero: " + eBook.getGenre() + "\n";
-                message += "Nota Média: " + eBook.getRateAverage() + "\n";
+                message += "Nota Média: " + eBook.getRateAverage() + "\n\n";
             }
-            JOptionPane.showMessageDialog(null, message);
         } catch (Exception e) {
             e.printStackTrace();
         }

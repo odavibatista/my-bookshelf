@@ -43,7 +43,9 @@ CREATE TABLE ratings(
 INSERT INTO genres (genre_name) VALUES
     ('Romance'),
     ('Ficção'),
-    ('Técnico');
+    ('Técnico'),
+    ('História'),
+    ('Filosofia');
     
 -- Admin user register
 INSERT INTO users (
