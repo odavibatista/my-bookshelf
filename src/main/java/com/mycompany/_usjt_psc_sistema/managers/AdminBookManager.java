@@ -256,7 +256,7 @@ public class AdminBookManager extends javax.swing.JFrame {
             ExtendedBook[] sortedBooks = ExtendedBook.sort(ratedBooks);
             for (ExtendedBook eBook : sortedBooks) {
                 /* Page splitter */
-                if (message.length() > 600) {
+                if (message.length() > 400) {
                     JOptionPane.showMessageDialog(null, message);
                     message = "";
                 }

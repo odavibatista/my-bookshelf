@@ -6,8 +6,14 @@ package com.mycompany._usjt_psc_sistema.managers;
 
 import java.awt.Toolkit;
 
+import javax.swing.JOptionPane;
+
 import com.mycompany._usjt_psc_sistema.BookRegister;
 import com.mycompany._usjt_psc_sistema.RateBook;
+import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
+import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
+import com.mycompany._usjt_psc_sistema.models.Book;
+import com.mycompany._usjt_psc_sistema.models.ExtendedBook;
 import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
 
 /**
@@ -34,13 +40,15 @@ public class BookManager extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         registerBookButton = new javax.swing.JButton();
-        returnButton = new javax.swing.JButton();
+        seeBooksButton = new javax.swing.JButton();
         rateBookButton = new javax.swing.JButton();
+        returnButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,10 +61,10 @@ public class BookManager extends javax.swing.JFrame {
             }
         });
 
-        returnButton.setText("Voltar");
-        returnButton.addActionListener(new java.awt.event.ActionListener() {
+        seeBooksButton.setText("Ver Livros");
+        seeBooksButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                returnButtonActionPerformed(evt);
+                seeBooksButtonActionPerformed(evt);
             }
         });
 
@@ -64,6 +72,13 @@ public class BookManager extends javax.swing.JFrame {
         rateBookButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rateBookButtonActionPerformed(evt);
+            }
+        });
+
+        returnButton.setText("Voltar");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
             }
         });
 
@@ -75,12 +90,14 @@ public class BookManager extends javax.swing.JFrame {
                                 .addGap(55, 55, 55)
                                 .addGroup(jPanel1Layout
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, 219,
+                                        .addComponent(seeBooksButton, javax.swing.GroupLayout.DEFAULT_SIZE, 219,
                                                 Short.MAX_VALUE)
                                         .addComponent(registerBookButton, javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(rateBookButton, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, 219,
+                                                Short.MAX_VALUE))
                                 .addContainerGap(55, Short.MAX_VALUE)));
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,9 +108,12 @@ public class BookManager extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(rateBookButton, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
+                                .addComponent(seeBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
                                 .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17)));
+                                .addContainerGap()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +130,7 @@ public class BookManager extends javax.swing.JFrame {
                                 .addGap(31, 31, 31)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(38, Short.MAX_VALUE)));
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,6 +152,42 @@ public class BookManager extends javax.swing.JFrame {
         BookRegister br = new BookRegister();
         br.setVisible(true);
     }// GEN-LAST:event_registerBookButtonActionPerformed
+
+    private void seeBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        BookDAO books = new BookDAO();
+        RateDAO rates = new RateDAO();
+
+        String message = "";
+
+        try {
+            Book[] foundBooks = books.getBooks();
+            ExtendedBook[] ratedBooks = new ExtendedBook[foundBooks.length];
+
+            for (Book book : foundBooks) {
+                int bookId = book.getId();
+                int ratings = rates.countRatings(bookId);
+                int sumOfRatings = rates.getSumOfRatings(bookId);
+
+                ExtendedBook extendedBook = new ExtendedBook(book, ratings, sumOfRatings);
+                ratedBooks[bookId - 1] = extendedBook;
+            }
+            ExtendedBook[] sortedBooks = ExtendedBook.sort(ratedBooks);
+            for (ExtendedBook eBook : sortedBooks) {
+                /* Page splitter */
+                if (message.length() > 400) {
+                    JOptionPane.showMessageDialog(null, message);
+                    message = "";
+                }
+                message += "ID: " + eBook.getId() + "\n";
+                message += "Título: " + eBook.getTitle() + "\n";
+                message += "Autor: " + eBook.getAuthor() + "\n";
+                message += "Gênero: " + eBook.getGenre() + "\n";
+                message += "Nota Média: " + eBook.getRateAverage() + "\n\n";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -181,5 +237,6 @@ public class BookManager extends javax.swing.JFrame {
     private javax.swing.JButton rateBookButton;
     private javax.swing.JButton registerBookButton;
     private javax.swing.JButton returnButton;
+    private javax.swing.JButton seeBooksButton;
     // End of variables declaration//GEN-END:variables
 }
