@@ -16,6 +16,8 @@ import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.ExtendedBook;
 import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
 
+import helpers.BookFinder;
+
 /**
  *
  * @author 823212382
@@ -154,39 +156,8 @@ public class BookManager extends javax.swing.JFrame {
     }// GEN-LAST:event_registerBookButtonActionPerformed
 
     private void seeBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        BookDAO books = new BookDAO();
-        RateDAO rates = new RateDAO();
-
-        String message = "";
-
-        try {
-            Book[] foundBooks = books.getBooks();
-            ExtendedBook[] ratedBooks = new ExtendedBook[foundBooks.length];
-
-            for (Book book : foundBooks) {
-                int bookId = book.getId();
-                int ratings = rates.countRatings(bookId);
-                int sumOfRatings = rates.getSumOfRatings(bookId);
-
-                ExtendedBook extendedBook = new ExtendedBook(book, ratings, sumOfRatings);
-                ratedBooks[bookId - 1] = extendedBook;
-            }
-            ExtendedBook[] sortedBooks = ExtendedBook.sort(ratedBooks);
-            for (ExtendedBook eBook : sortedBooks) {
-                /* Page splitter */
-                if (message.length() > 400) {
-                    JOptionPane.showMessageDialog(null, message);
-                    message = "";
-                }
-                message += "ID: " + eBook.getId() + "\n";
-                message += "Título: " + eBook.getTitle() + "\n";
-                message += "Autor: " + eBook.getAuthor() + "\n";
-                message += "Gênero: " + eBook.getGenre() + "\n";
-                message += "Nota Média: " + eBook.getRateAverage() + "\n\n";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        BookFinder bookFinder = new BookFinder();
+        bookFinder.findAll();
     }
 
     /**

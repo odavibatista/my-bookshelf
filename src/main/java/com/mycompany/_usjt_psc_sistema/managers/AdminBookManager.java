@@ -17,6 +17,8 @@ import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.ExtendedBook;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
 
+import helpers.BookFinder;
+
 /**
  *
  * @author 823212382
@@ -236,40 +238,8 @@ public class AdminBookManager extends javax.swing.JFrame {
     }// GEN-LAST:event_adminDeleteBookButtonActionPerformed
 
     private void adminSeeBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_adminSeeBooksButtonActionPerformed
-        BookDAO books = new BookDAO();
-        RateDAO rates = new RateDAO();
-
-        String message = "";
-
-        try {
-            Book[] foundBooks = books.getBooks();
-            ExtendedBook[] ratedBooks = new ExtendedBook[foundBooks.length];
-
-            for (Book book : foundBooks) {
-                int bookId = book.getId();
-                int ratings = rates.countRatings(bookId);
-                int sumOfRatings = rates.getSumOfRatings(bookId);
-
-                ExtendedBook extendedBook = new ExtendedBook(book, ratings, sumOfRatings);
-                ratedBooks[bookId - 1] = extendedBook;
-            }
-            ExtendedBook[] sortedBooks = ExtendedBook.sort(ratedBooks);
-            for (ExtendedBook eBook : sortedBooks) {
-                /* Page splitter */
-                if (message.length() > 400) {
-                    JOptionPane.showMessageDialog(null, message);
-                    message = "";
-                }
-                message += "ID: " + eBook.getId() + "\n";
-                message += "Título: " + eBook.getTitle() + "\n";
-                message += "Autor: " + eBook.getAuthor() + "\n";
-                message += "Gênero: " + eBook.getGenre() + "\n";
-                message += "Nota Média: " + eBook.getRateAverage() + "\n\n";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        BookFinder bookFinder = new BookFinder();
+        bookFinder.findAll();
     }// GEN-LAST:event_adminSeeBooksButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_returnButtonActionPerformed
