@@ -8,6 +8,8 @@ import com.mycompany._usjt_psc_sistema.managers.*;
 
 import java.awt.Toolkit;
 
+import javax.swing.JOptionPane;
+
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.RateDAO;
 import com.mycompany._usjt_psc_sistema.models.Book;
@@ -179,8 +181,14 @@ public class RateBook extends javax.swing.JFrame {
                         Book book = bookDAO.searchByName(bookName);
                         int bookId = book.getId();
                         int rate = Integer.parseInt(ratingAmount.getText());
-                        Rate newRate = new Rate(User.user.getId(), bookId, rate);
-                        rateDAO.register(newRate);
+
+                        if (rate < 1 || rate > 5) {
+                                JOptionPane.showMessageDialog(null, "A nota deve ser entre 1 e 5");
+                                return;
+                        } else {
+                                Rate newRate = new Rate(User.user.getId(), bookId, rate);
+                                rateDAO.register(newRate);
+                        }
                 } catch (Exception e) {
                         System.out.println(e.getMessage());
                 }

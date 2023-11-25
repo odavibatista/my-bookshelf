@@ -177,8 +177,15 @@ public class AdminRateBook extends javax.swing.JFrame {
                         Book book = bookDAO.searchByName(bookName);
                         int bookId = book.getId();
                         int rate = Integer.parseInt(ratingAmount.getText());
-                        Rate newRate = new Rate(User.user.getId(), bookId, rate);
-                        rateDAO.register(newRate);
+
+                        if (rate < 1 || rate > 5) {
+                                JOptionPane.showMessageDialog(null, "A nota deve ser entre 1 e 5");
+                                return;
+                        } else {
+                                Rate newRate = new Rate(User.user.getId(), bookId, rate);
+                                rateDAO.register(newRate);
+                        }
+
                 } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "Erro ao avaliar livro");
                 }
