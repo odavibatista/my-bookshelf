@@ -49,11 +49,26 @@ public class ExtendedBook extends Book {
     /* Sorting method */
     public static ExtendedBook[] sort(ExtendedBook[] books) {
         for (int i = 0; i < books.length; i++) {
+            /* Sorting the books by its average rating */
             for (int j = 0; j < books.length - 1; j++) {
                 if (books[j].getRateAverage() < books[j + 1].getRateAverage()) {
                     ExtendedBook temp = books[j];
                     books[j] = books[j + 1];
                     books[j + 1] = temp;
+                    /* Sorting the books by the amount of ratings if they have the same average */
+                } else if (books[j].getRateAverage() == books[j + 1].getRateAverage()) {
+                    if (books[j].getRateAmount() < books[j + 1].getRateAmount()) {
+                        ExtendedBook temp = books[j];
+                        books[j] = books[j + 1];
+                        books[j + 1] = temp;
+                        /* Sorting the books alphabetically if they have same average and rate amount */
+                    } else if (books[j].getRateAmount() == books[j + 1].getRateAmount()) {
+                        if (books[j].getTitle().compareTo(books[j + 1].getTitle()) > 0) {
+                            ExtendedBook temp = books[j];
+                            books[j] = books[j + 1];
+                            books[j + 1] = temp;
+                        }
+                    }
                 }
             }
         }
