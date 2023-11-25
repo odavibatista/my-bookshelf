@@ -7,6 +7,7 @@ package com.mycompany._usjt_psc_sistema.managers;
 import java.awt.Toolkit;
 
 import com.mycompany._usjt_psc_sistema.BookRegister;
+import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
 
 /**
  *
@@ -109,8 +110,8 @@ public class BookManager extends javax.swing.JFrame {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_returnButtonActionPerformed
         this.dispose();
-        BookRegister br = new BookRegister();
-        br.setVisible(true);
+        DashboardScreen ds = new DashboardScreen();
+        ds.setVisible(true);
     }// GEN-LAST:event_returnButtonActionPerformed
 
     private void registerBookButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_registerBookButtonActionPerformed
