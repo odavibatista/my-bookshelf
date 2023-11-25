@@ -5,16 +5,14 @@
 package com.mycompany._usjt_psc_sistema;
 
 import com.mycompany._usjt_psc_sistema.models.Book;
-import com.mycompany._usjt_psc_sistema.models.Genre;
 import com.mycompany._usjt_psc_sistema.models.User;
-import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
-import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
 
 import helpers.GenreNames;
 
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
-import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
+import com.mycompany._usjt_psc_sistema.managers.AdminBookManager;
+import com.mycompany._usjt_psc_sistema.managers.BookManager;
 
 import java.awt.Toolkit;
 
@@ -176,11 +174,11 @@ public class BookRegister extends javax.swing.JFrame {
                 this.dispose();
                 try {
                         if (dao.isSuperUser(User.user)) {
-                                AdminDashboardScreen dashboardScreen = new AdminDashboardScreen();
-                                dashboardScreen.setVisible(true);
+                                AdminBookManager abm = new AdminBookManager();
+                                abm.setVisible(true);
                         } else {
-                                DashboardScreen dashboardScreen = new DashboardScreen();
-                                dashboardScreen.setVisible(true);
+                                BookManager bm = new BookManager();
+                                bm.setVisible(true);
                         }
                 } catch (Exception e) {
                         e.printStackTrace();
@@ -200,11 +198,11 @@ public class BookRegister extends javax.swing.JFrame {
                         dao.register(book);
 
                         if (User.user.getUserType()) {
-                                AdminDashboardScreen dashboardScreen = new AdminDashboardScreen();
-                                dashboardScreen.setVisible(true);
+                                AdminBookManager abm = new AdminBookManager();
+                                abm.setVisible(true);
                         } else {
-                                DashboardScreen dashboardScreen = new DashboardScreen();
-                                dashboardScreen.setVisible(true);
+                                BookManager bm = new BookManager();
+                                bm.setVisible(true);
                         }
 
                         this.dispose();
