@@ -5,7 +5,9 @@
 package com.mycompany._usjt_psc_sistema.DAOS;
 
 import com.mycompany._usjt_psc_sistema.models.Book;
-import com.mycompany._usjt_psc_sistema.ConnectionFactory;
+
+import helpers.ConnectionFactory;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

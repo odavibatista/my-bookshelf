@@ -4,25 +4,24 @@
  */
 package testing_package;
 
-import com.mycompany._usjt_psc_sistema.ConnectionFactory;
 import javax.swing.JOptionPane;
+
+import helpers.ConnectionFactory;
 
 /**
  *
  * @author rodrigo
  */
 public class TesteConexao {
-    public static void main(String[] args){
-        try{
+    public static void main(String[] args) {
+        try {
             var factory = new ConnectionFactory();
             var minhaConexao = factory.conectar();
             System.out.println("Conectou!!");
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(
-                    null, 
-                    e.getMessage()
-            );
+                    null,
+                    e.getMessage());
             e.printStackTrace();
         }
     }

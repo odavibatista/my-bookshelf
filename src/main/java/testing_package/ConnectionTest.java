@@ -1,6 +1,6 @@
 package testing_package;
 
-import com.mycompany._usjt_psc_sistema.ConnectionFactory;
+import helpers.ConnectionFactory;
 
 public class ConnectionTest {
     public static void main(String[] args) throws Exception {

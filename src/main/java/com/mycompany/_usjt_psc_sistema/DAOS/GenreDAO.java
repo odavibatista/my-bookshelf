@@ -8,8 +8,9 @@ import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
 
-import com.mycompany._usjt_psc_sistema.ConnectionFactory;
 import com.mycompany._usjt_psc_sistema.models.Genre;
+
+import helpers.ConnectionFactory;
 
 /**
  *
