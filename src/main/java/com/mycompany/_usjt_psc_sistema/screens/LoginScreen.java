@@ -7,6 +7,8 @@ package com.mycompany._usjt_psc_sistema.screens;
 import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
 import com.mycompany._usjt_psc_sistema.models.User;
 
+import app.App;
+
 import java.awt.Toolkit;
 
 import javax.swing.JOptionPane;
@@ -126,6 +128,8 @@ public class LoginScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cancelLoginButtonActionPerformed
+        App app = new App();
+        app.setVisible(true);
         this.dispose();
     }// GEN-LAST:event_cancelLoginButtonActionPerformed
 

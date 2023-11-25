@@ -6,12 +6,15 @@ package com.mycompany._usjt_psc_sistema;
 
 import com.mycompany._usjt_psc_sistema.models.Book;
 import com.mycompany._usjt_psc_sistema.models.Genre;
+import com.mycompany._usjt_psc_sistema.models.User;
 import com.mycompany._usjt_psc_sistema.screens.AdminDashboardScreen;
+import com.mycompany._usjt_psc_sistema.screens.DashboardScreen;
 
 import helpers.GenreNames;
 
 import com.mycompany._usjt_psc_sistema.DAOS.BookDAO;
 import com.mycompany._usjt_psc_sistema.DAOS.GenreDAO;
+import com.mycompany._usjt_psc_sistema.DAOS.UserDAO;
 
 import java.awt.Toolkit;
 
@@ -169,7 +172,20 @@ public class BookRegister extends javax.swing.JFrame {
         }// </editor-fold>//GEN-END:initComponents
 
         private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_returnButtonActionPerformed
+                UserDAO dao = new UserDAO();
                 this.dispose();
+                try {
+                        if (dao.isSuperUser(User.user)) {
+                                AdminDashboardScreen dashboardScreen = new AdminDashboardScreen();
+                                dashboardScreen.setVisible(true);
+                        } else {
+                                DashboardScreen dashboardScreen = new DashboardScreen();
+                                dashboardScreen.setVisible(true);
+                        }
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
+
         }// GEN-LAST:event_returnButtonActionPerformed
 
         private void registerBookButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_registerBookButtonActionPerformed
@@ -182,8 +198,15 @@ public class BookRegister extends javax.swing.JFrame {
                         BookDAO dao = new BookDAO();
 
                         dao.register(book);
-                        AdminDashboardScreen dashboardScreen = new AdminDashboardScreen();
-                        dashboardScreen.setVisible(true);
+
+                        if (User.user.getUserType()) {
+                                AdminDashboardScreen dashboardScreen = new AdminDashboardScreen();
+                                dashboardScreen.setVisible(true);
+                        } else {
+                                DashboardScreen dashboardScreen = new DashboardScreen();
+                                dashboardScreen.setVisible(true);
+                        }
+
                         this.dispose();
                 } catch (Exception e) {
                         JOptionPane.showMessageDialog(null,

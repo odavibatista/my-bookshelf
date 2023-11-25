@@ -65,7 +65,7 @@ public class UserDAO {
         String gender = pessoa.getGender();
         String password = pessoa.getPassword();
 
-        String sql = "INSERT INTO users (name, surname, email, age, gender, user_password, favorite_gender, second_favorite_gender, super_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO users (first_name, last_name, email, age, gender, user_password, favorite_gender, second_favorite_gender, super_user) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
         var connection = ConnectionFactory.conectar();
 
         PreparedStatement ps = connection.prepareStatement(sql);
@@ -83,12 +83,12 @@ public class UserDAO {
         int rowsAffected = ps.executeUpdate();
 
         if (rowsAffected > 0) {
-            JOptionPane.showMessageDialog(null, "Aluno cadastrado!");
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado!");
 
             AdminDashboardScreen dashboardScreen = new AdminDashboardScreen();
             dashboardScreen.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno");
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar usuário. Tente novamente.");
         }
 
         ps.close();
@@ -101,7 +101,7 @@ public class UserDAO {
         String email = pessoa.getEmail();
         String password = pessoa.getPassword();
 
-        String sql = "UPDATE users SET email = ?, password = ?, WHERE id = ?;";
+        String sql = "UPDATE users SET email = ?, user_password = ?, WHERE id = ?;";
 
         try (
                 var connection = ConnectionFactory.conectar();
@@ -185,7 +185,7 @@ public class UserDAO {
 
     /* See if the user is a superuser / admin */
     public boolean isSuperUser(User user) throws Exception {
-        String sql = "SELECT * FROM users WHERE email = ? AND user_password = ?;";
+        String sql = "SELECT * FROM users WHERE email = ? AND user_password = ? AND super_user = true";
         String email = user.getEmail();
         String password = user.getPassword();
 
