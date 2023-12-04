@@ -1,4 +1,5 @@
-USE defaultdb;
+CREATE DATABASE db;
+USE db;
 
 -- Genres table creation
 CREATE TABLE genres (
@@ -69,4 +70,44 @@ VALUES (
     1,
     2,
     1
-);
+),
+(
+'João', 
+'Silva', 
+'joão@email.com', 
+45, 
+'Masculino',
+'1234',
+2, 
+4, 
+0
+)
+;
+
+INSERT INTO books (title, author, genre_id)
+VALUES 
+("O Antropoteísmo - A Religião do Homem", "Orlando Fedeli", 1), 
+("História dos Estados Unidos - sem mitos", "Marcelo Andrade", 4),
+("Sob a Máscara - As Polêmicas de Orlando Fedeli e Fernando Schlithler contra Olavo de Carvalho", "Fernando Schlithler", 5),
+("O Marxismo Exposto", "Marcelo Andrade", 4),
+("Segunda Guerra Mundial - uma guerra contra os povos", "Marcelo Andrade", 4),
+("Lutero", "Frantz Funck-Brentano", 4),
+("A Metafísica da Gastronomia - Santo Tomás de Aquino à Mesa", "Marcelo Andrade", 5),
+("Conversas à Mesa", "Martinho Lutero", 4),
+("Televisão - um 'fast-food' envenenado para a alma", "Marcelo Andrade", 3),
+("1822 - a Separação do Brasil", "Marcelo Andrade", 4),
+("Impérios Coloniais", "Marcelo Andrade", 4),
+("Monsieur de Charette - O Rei da Vendeia", "Georges Lenotre", 4),
+("Nos Labirintos de Eco - um guia de leitura para 'O Nome da Rosa'", "Orlando Fedeli", 1),
+("Elementos Esotéricos e Cabalísticos nas Visões de Anna Katharina Emmerick", "Orlando Fedeli", 3);
+
+INSERT INTO ratings (user_id, book_id, rating)
+VALUES
+(1, 6, 10),
+(1, 4, 10),
+(1, 13, 6),
+(1, 3, 7),
+(2, 9, 8),
+(2, 4, 10),
+(2, 13, 9),
+(2, 3, 8);
