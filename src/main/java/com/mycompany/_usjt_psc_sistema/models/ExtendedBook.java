@@ -13,11 +13,11 @@ public class ExtendedBook extends Book {
     private int rateTotal;
     private double rateAverage;
 
-    public ExtendedBook(Book book, int rateAmount, int rateTotal) {
+    public ExtendedBook(Book book, int rateAmount, int rateTotal, double rateAverage) {
         super(book.getId(), book.getTitle(), book.getAuthor(), book.getGenre());
         this.rateAmount = rateAmount;
         this.rateTotal = rateTotal;
-        this.rateAverage = rateTotal / rateAmount;
+        this.rateAverage = rateAverage;
     }
 
     /* Getters */

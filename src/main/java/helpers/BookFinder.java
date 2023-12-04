@@ -32,8 +32,10 @@ public class BookFinder {
                 int bookId = book.getId();
                 int ratings = rates.countRatings(bookId);
                 int sumOfRatings = rates.getSumOfRatings(bookId);
+                // if rateAverage is 0, then it will be 0, otherwise it will be the average
+                double rateAverage = ratings == 0 && sumOfRatings == 0 ? 0 : (double) sumOfRatings / ratings;
 
-                ExtendedBook extendedBook = new ExtendedBook(book, ratings, sumOfRatings);
+                ExtendedBook extendedBook = new ExtendedBook(book, ratings, sumOfRatings, rateAverage);
                 ratedBooks[bookId - 1] = extendedBook;
             }
             ExtendedBook[] sortedBooks = ExtendedBook.sort(ratedBooks);

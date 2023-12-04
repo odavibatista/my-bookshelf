@@ -80,7 +80,7 @@ public class RateDAO {
 
     /* Counting the ratings of a book */
     public int countRatings(int id) throws Exception {
-        String sql = "SELECT COUNT(*) FROM ratings WHERE book_id = ?";
+        String sql = "SELECT * FROM ratings WHERE book_id = ?";
 
         try (
                 var conn = ConnectionFactory.conectar();
@@ -93,8 +93,8 @@ public class RateDAO {
         ) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            // Get the number of ratings, even if there's only one
             int totalRatings = rs.last() ? rs.getRow() : 0;
+
             return totalRatings;
         }
     }

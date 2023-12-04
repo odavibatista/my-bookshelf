@@ -23,7 +23,7 @@ public class ConnectionFactory {
     public static Connection conectar() throws Exception {
         // String s = "jdbc:mysql://" + host + ":" + port + "/" + db;
         s = String.format(
-                "jdbc:%s://%s:%s/%s",
+                "jdbc:%s://%s:%s/%s?serverTimezone=UTC",
                 engine, host, port, db);
 
         var c = DriverManager.getConnection(
